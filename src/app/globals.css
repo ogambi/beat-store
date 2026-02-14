@@ -2392,3 +2392,74 @@ a {
     background-attachment: scroll !important;
   }
 }
+
+/* Final mobile + still background overrides */
+.duel-page {
+  min-height: 100dvh !important;
+  background-image: url("/Back-ZX-Site-2.webp") !important;
+  background-color: #05050a !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+}
+
+.bg-video {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .duel-page {
+    background-attachment: scroll !important;
+    background-position: center top !important;
+  }
+
+  .deck-stage.deck-stage-center {
+    padding: 132px 14px 20px !important;
+    min-height: 100dvh !important;
+    align-items: flex-start !important;
+  }
+
+  .kit-showcase {
+    width: min(980px, 100%) !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    justify-items: center !important;
+    gap: 14px !important;
+  }
+
+  .kit-showcase .deck-stack {
+    width: min(46vw, 168px) !important;
+    aspect-ratio: 0.72 / 1 !important;
+    margin: 0 auto !important;
+    transform: none !important;
+  }
+
+  .kit-showcase .deck-item-image {
+    object-fit: contain !important;
+  }
+
+  .kit-showcase .kit-info-panel,
+  .kit-info-panel {
+    width: min(92vw, 420px) !important;
+    max-width: min(92vw, 420px) !important;
+    margin: 0 auto !important;
+    padding: 0.95rem 0.9rem !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .deck-stage.deck-stage-center {
+    padding-top: 120px !important;
+  }
+
+  .kit-showcase .deck-stack {
+    width: min(44vw, 150px) !important;
+  }
+
+  .kit-showcase .kit-info-panel,
+  .kit-info-panel {
+    width: min(94vw, 360px) !important;
+    max-width: min(94vw, 360px) !important;
+  }
+}

@@ -360,11 +360,6 @@ export function DuelLanding({ beats }: Props) {
 
   return (
     <main className="duel-page">
-      <video className="bg-video" autoPlay muted loop playsInline preload="metadata" poster="/Back-ZX-Site-2.webp">
-        <source src="/websitebackground-loop.m4v" type="video/mp4" />
-        <source src="/websitebackground.mov" type="video/quicktime" />
-      </video>
-
       <div className="top-brand" aria-hidden="false">
         <button type="button" className="top-brand-button" onClick={resetToCarousel} aria-label="Back to pack select">
           {/* eslint-disable-next-line @next/next/no-img-element */}
