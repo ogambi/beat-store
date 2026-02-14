@@ -31,10 +31,10 @@ type Props = {
 };
 
 const RING_PACKS: PackItem[] = [
-  { id: "dark-a", image: "/darkmagicianpack.png", theme: "dark", tab: "beats" },
-  { id: "white-a", image: "/whitedragonpack.png", theme: "white", tab: "licenses" },
-  { id: "dark-b", image: "/darkmagicianpack.png", theme: "dark", tab: "beats" },
-  { id: "white-b", image: "/whitedragonpack.png", theme: "white", tab: "licenses" }
+  { id: "dark-a", image: "/darkmagicianpack-420.png", theme: "dark", tab: "beats" },
+  { id: "white-a", image: "/whitedragonpack-420.png", theme: "white", tab: "licenses" },
+  { id: "dark-b", image: "/darkmagicianpack-420.png", theme: "dark", tab: "beats" },
+  { id: "white-b", image: "/whitedragonpack-420.png", theme: "white", tab: "licenses" }
 ];
 
 const DECK_BY_THEME: Record<PackTheme, string[]> = {
@@ -360,14 +360,15 @@ export function DuelLanding({ beats }: Props) {
 
   return (
     <main className="duel-page">
-      <video className="bg-video" autoPlay muted loop playsInline>
+      <video className="bg-video" autoPlay muted loop playsInline preload="metadata" poster="/Back-ZX-Site-2.webp">
+        <source src="/websitebackground-loop.m4v" type="video/mp4" />
         <source src="/websitebackground.mov" type="video/quicktime" />
       </video>
 
       <div className="top-brand" aria-hidden="false">
         <button type="button" className="top-brand-button" onClick={resetToCarousel} aria-label="Back to pack select">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/headerlogo.png" alt="Header logo" className="top-brand-logo" />
+          <img src="/headerlogo-640.png" alt="Header logo" className="top-brand-logo" />
         </button>
       </div>
 

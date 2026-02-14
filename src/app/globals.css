@@ -2377,3 +2377,18 @@ a {
     gap: 0.42rem !important;
   }
 }
+
+/* Performance overrides: fast background paint + lighter mobile load */
+.duel-page {
+  background: #05050a url("/Back-ZX-Site-2.webp") center center / cover no-repeat fixed !important;
+}
+
+@media (max-width: 900px) {
+  .bg-video {
+    display: none !important;
+  }
+
+  .duel-page {
+    background-attachment: scroll !important;
+  }
+}
