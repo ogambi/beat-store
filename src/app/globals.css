@@ -412,7 +412,7 @@ a {
   transform: rotateY(0deg);
   background:
     linear-gradient(rgba(10, 8, 18, 0.15), rgba(10, 8, 18, 0.15)),
-    url("/Back-ZX-Site-2.webp");
+    url("/background.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2380,7 +2380,7 @@ a {
 
 /* Performance overrides: fast background paint + lighter mobile load */
 .duel-page {
-  background: #05050a url("/Back-ZX-Site-2.webp") center center / cover no-repeat fixed !important;
+  background: #05050a url("/background.webp") center center / cover no-repeat fixed !important;
 }
 
 @media (max-width: 900px) {
@@ -2396,7 +2396,7 @@ a {
 /* Final mobile + still background overrides */
 .duel-page {
   min-height: 100dvh !important;
-  background-image: url("/Back-ZX-Site-2.webp") !important;
+  background-image: url("/background.webp") !important;
   background-color: #05050a !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
@@ -2517,5 +2517,84 @@ a {
     max-width: min(92vw, 340px) !important;
     margin: 0 auto !important;
     padding: 0.82rem 0.78rem !important;
+  }
+}
+
+/* FINAL HOTFIX v2: enforce mobile background + no overlap in kit screen */
+html,
+body,
+.duel-page {
+  background-image: url("/background.webp") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+@media (max-width: 680px) {
+  .duel-page {
+    background-attachment: scroll !important;
+  }
+
+  .left-back-btn {
+    top: 96px !important;
+    left: 12px !important;
+    transform: none !important;
+  }
+
+  .deck-stage.deck-stage-center {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 138px 10px 16px !important;
+    z-index: 10 !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-showcase {
+    width: min(96vw, 380px) !important;
+    margin: 0 auto !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    justify-items: center !important;
+    align-items: start !important;
+    gap: 8px !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-showcase .deck-stack {
+    width: 112px !important;
+    max-width: 112px !important;
+    min-width: 112px !important;
+    margin: 0 auto !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-showcase .deck-item-image {
+    object-fit: contain !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-showcase .kit-info-panel,
+  .deck-stage.deck-stage-center .kit-info-panel {
+    width: min(94vw, 340px) !important;
+    max-width: min(94vw, 340px) !important;
+    min-height: auto !important;
+    margin: 0 auto !important;
+    padding: 0.72rem 0.72rem !important;
+    gap: 0.5rem !important;
+    z-index: 12 !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-info-panel h3 {
+    font-size: 0.98rem !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-info-panel p {
+    font-size: 0.8rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-buy-btn {
+    min-width: 180px !important;
+    padding: 0.55rem 0.7rem !important;
   }
 }
