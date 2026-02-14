@@ -2463,3 +2463,59 @@ a {
     max-width: min(94vw, 360px) !important;
   }
 }
+
+/* FINAL HOTFIX: mobile background + kit layout fit */
+.duel-page {
+  background-image: url("/background.webp") !important;
+}
+
+.duel-field {
+  background: transparent !important;
+}
+
+@media (max-width: 680px) {
+  .left-back-btn {
+    top: 104px !important;
+    left: 12px !important;
+    transform: none !important;
+    z-index: 30 !important;
+  }
+
+  .deck-stage.deck-stage-center {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    margin: 0 !important;
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 130px 12px 18px !important;
+    justify-items: center !important;
+    align-items: start !important;
+    z-index: 18 !important;
+  }
+
+  .kit-showcase {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    justify-items: center !important;
+    align-items: start !important;
+    gap: 10px !important;
+    padding: 0 8px !important;
+  }
+
+  .kit-showcase .deck-stack {
+    width: min(36vw, 126px) !important;
+    max-width: 126px !important;
+    margin: 0 auto !important;
+  }
+
+  .kit-showcase .kit-info-panel,
+  .kit-info-panel {
+    width: min(92vw, 340px) !important;
+    max-width: min(92vw, 340px) !important;
+    margin: 0 auto !important;
+    padding: 0.82rem 0.78rem !important;
+  }
+}
