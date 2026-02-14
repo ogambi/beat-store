@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Beat {
+  id                String   @id @default(cuid())
+  title             String
+  slug              String   @unique
+  bpm               Int
+  key               String
+  genre             String
+  mood              String
+  priceCents        Int
+  previewUrl        String
+  archiveObjectKey  String
+  archiveFileName   String
+  archiveFileType   String
+  archiveFileSize   Int
+  isPublished       Boolean  @default(true)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  orders Order[]
+}
+
+model Order {
+  id                 String   @id @default(cuid())
+  stripeCheckoutId   String   @unique
+  stripePaymentId    String?
+  customerEmail      String
+  amountTotalCents   Int
+  status             String   @default("PENDING")
+  beatId             String
+  createdAt          DateTime @default(now())
+  fulfilledAt        DateTime?
+
+  beat Beat @relation(fields: [beatId], references: [id], onDelete: Restrict)
+  downloadLinks DownloadLink[]
+}
+
+model DownloadLink {
+  id         String   @id @default(cuid())
+  token      String   @unique
+  orderId    String
+  expiresAt  DateTime
+  downloads  Int      @default(0)
+  maxDownloads Int    @default(5)
+  createdAt  DateTime @default(now())
+
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+}

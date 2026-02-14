@@ -1,0 +1,145 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@11.6.2
+2 info using node@v24.13.0
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/gambino/Documents/New project/.npmrc
+5 silly config load:file:/Users/gambino/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm install
+8 verbose argv "install" "--cache" ".npm-cache"
+9 verbose logfile logs-max:10 dir:/Users/gambino/Documents/New project/.npm-cache/_logs/2026-02-06T15_25_38_207Z-
+10 verbose logfile /Users/gambino/Documents/New project/.npm-cache/_logs/2026-02-06T15_25_38_207Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4496293888 maxSize:1124073472 maxEntrySize:562036736
+13 silly idealTree buildDeps
+14 silly fetch manifest @prisma/client@^6.2.1
+15 silly packumentCache full:https://registry.npmjs.org/@prisma%2fclient cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/npm 1639ms
+17 http fetch GET 200 https://registry.npmjs.org/@prisma%2fclient 8138ms (cache miss)
+18 silly packumentCache full:https://registry.npmjs.org/@prisma%2fclient set size:undefined disposed:false
+19 silly fetch manifest prisma@^6.2.1
+20 silly packumentCache full:https://registry.npmjs.org/prisma cache-miss
+21 http fetch GET 200 https://registry.npmjs.org/prisma 5952ms (cache miss)
+22 silly packumentCache full:https://registry.npmjs.org/prisma set size:undefined disposed:false
+23 silly fetch manifest typescript@^5.7.2
+24 silly packumentCache full:https://registry.npmjs.org/typescript cache-miss
+25 http fetch GET 200 https://registry.npmjs.org/typescript 2260ms (cache miss)
+26 silly packumentCache full:https://registry.npmjs.org/typescript set size:undefined disposed:false
+27 silly fetch manifest @stripe/stripe-js@^5.4.0
+28 silly packumentCache full:https://registry.npmjs.org/@stripe%2fstripe-js cache-miss
+29 http fetch GET 200 https://registry.npmjs.org/@stripe%2fstripe-js 396ms (cache miss)
+30 silly packumentCache full:https://registry.npmjs.org/@stripe%2fstripe-js set size:undefined disposed:false
+31 silly fetch manifest clsx@^2.1.1
+32 silly packumentCache full:https://registry.npmjs.org/clsx cache-miss
+33 http fetch GET 200 https://registry.npmjs.org/clsx 149ms (cache miss)
+34 silly packumentCache full:https://registry.npmjs.org/clsx set size:undefined disposed:false
+35 silly fetch manifest next@14.2.18
+36 silly packumentCache full:https://registry.npmjs.org/next cache-miss
+37 http fetch GET 200 https://registry.npmjs.org/next 2230ms (cache miss)
+38 silly packumentCache full:https://registry.npmjs.org/next set size:undefined disposed:false
+39 silly fetch manifest @opentelemetry/api@^1.1.0
+40 silly packumentCache full:https://registry.npmjs.org/@opentelemetry%2fapi cache-miss
+41 http fetch GET 200 https://registry.npmjs.org/@opentelemetry%2fapi 173ms (cache miss)
+42 silly packumentCache full:https://registry.npmjs.org/@opentelemetry%2fapi set size:undefined disposed:false
+43 silly fetch manifest @playwright/test@^1.41.2
+44 silly packumentCache full:https://registry.npmjs.org/@playwright%2ftest cache-miss
+45 http fetch GET 200 https://registry.npmjs.org/@playwright%2ftest 1892ms (cache miss)
+46 silly packumentCache full:https://registry.npmjs.org/@playwright%2ftest set size:undefined disposed:false
+47 silly fetch manifest react@18.3.1
+48 silly packumentCache full:https://registry.npmjs.org/react cache-miss
+49 http fetch GET 200 https://registry.npmjs.org/react 1442ms (cache miss)
+50 silly packumentCache full:https://registry.npmjs.org/react set size:undefined disposed:false
+51 silly fetch manifest react-dom@18.3.1
+52 silly packumentCache full:https://registry.npmjs.org/react-dom cache-miss
+53 http fetch GET 200 https://registry.npmjs.org/react-dom 1335ms (cache miss)
+54 silly packumentCache full:https://registry.npmjs.org/react-dom set size:undefined disposed:false
+55 silly fetch manifest sass@^1.3.0
+56 silly packumentCache full:https://registry.npmjs.org/sass cache-miss
+57 http fetch GET 200 https://registry.npmjs.org/sass 269ms (cache miss)
+58 silly packumentCache full:https://registry.npmjs.org/sass set size:undefined disposed:false
+59 silly fetch manifest resend@^4.1.1
+60 silly packumentCache full:https://registry.npmjs.org/resend cache-miss
+61 http fetch GET 200 https://registry.npmjs.org/resend 202ms (cache miss)
+62 silly packumentCache full:https://registry.npmjs.org/resend set size:undefined disposed:false
+63 silly fetch manifest stripe@^17.5.0
+64 silly packumentCache full:https://registry.npmjs.org/stripe cache-miss
+65 http fetch GET 200 https://registry.npmjs.org/stripe 415ms (cache miss)
+66 silly packumentCache full:https://registry.npmjs.org/stripe set size:undefined disposed:false
+67 silly fetch manifest zod@^3.24.1
+68 silly packumentCache full:https://registry.npmjs.org/zod cache-miss
+69 http fetch GET 200 https://registry.npmjs.org/zod 335ms (cache miss)
+70 silly packumentCache full:https://registry.npmjs.org/zod set size:undefined disposed:false
+71 silly fetch manifest @types/node@^22.10.1
+72 silly packumentCache full:https://registry.npmjs.org/@types%2fnode cache-miss
+73 http fetch GET 200 https://registry.npmjs.org/@types%2fnode 1450ms (cache miss)
+74 silly packumentCache full:https://registry.npmjs.org/@types%2fnode set size:undefined disposed:false
+75 silly fetch manifest @types/react@^18.3.13
+76 silly packumentCache full:https://registry.npmjs.org/@types%2freact cache-miss
+77 http fetch GET 200 https://registry.npmjs.org/@types%2freact 406ms (cache miss)
+78 silly packumentCache full:https://registry.npmjs.org/@types%2freact set size:undefined disposed:false
+79 silly fetch manifest @types/react-dom@^18.3.1
+80 silly packumentCache full:https://registry.npmjs.org/@types%2freact-dom cache-miss
+81 http fetch GET 200 https://registry.npmjs.org/@types%2freact-dom 241ms (cache miss)
+82 silly packumentCache full:https://registry.npmjs.org/@types%2freact-dom set size:undefined disposed:false
+83 silly fetch manifest eslint@^9.16.0
+84 silly packumentCache full:https://registry.npmjs.org/eslint cache-miss
+85 http fetch GET 200 https://registry.npmjs.org/eslint 181ms (cache miss)
+86 silly packumentCache full:https://registry.npmjs.org/eslint set size:undefined disposed:false
+87 silly fetch manifest jiti@*
+88 silly packumentCache full:https://registry.npmjs.org/jiti cache-miss
+89 http fetch GET 200 https://registry.npmjs.org/jiti 237ms (cache miss)
+90 silly packumentCache full:https://registry.npmjs.org/jiti set size:undefined disposed:false
+91 silly fetch manifest eslint-config-next@14.2.18
+92 silly packumentCache full:https://registry.npmjs.org/eslint-config-next cache-miss
+93 http fetch GET 200 https://registry.npmjs.org/eslint-config-next 1028ms (cache miss)
+94 silly packumentCache full:https://registry.npmjs.org/eslint-config-next set size:undefined disposed:false
+95 silly fetch manifest eslint@^7.23.0 || ^8.0.0
+96 silly packumentCache full:https://registry.npmjs.org/eslint cache-miss
+97 http cache https://registry.npmjs.org/eslint 8ms (cache hit)
+98 silly packumentCache full:https://registry.npmjs.org/eslint set size:1900626 disposed:false
+99 verbose stack Error: unable to resolve dependency tree
+99 verbose stack     at #failPeerConflict (/usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:1420:25)
+99 verbose stack     at #loadPeerSet (/usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:1386:33)
+99 verbose stack     at async #buildDepStep (/usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:929:11)
+99 verbose stack     at async Arborist.buildIdealTree (/usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:182:7)
+99 verbose stack     at async Promise.all (index 1)
+99 verbose stack     at async Arborist.reify (/usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:114:5)
+99 verbose stack     at async Install.exec (/usr/local/lib/node_modules/npm/lib/commands/install.js:150:5)
+99 verbose stack     at async Npm.exec (/usr/local/lib/node_modules/npm/lib/npm.js:208:9)
+99 verbose stack     at async module.exports (/usr/local/lib/node_modules/npm/lib/cli/entry.js:67:5)
+100 error code ERESOLVE
+101 error ERESOLVE unable to resolve dependency tree
+102 error
+103 error While resolving: beatvault-store@0.1.0
+103 error Found: eslint@9.39.2
+103 error node_modules/eslint
+103 error   dev eslint@"^9.16.0" from the root project
+103 error
+103 error Could not resolve dependency:
+103 error peer eslint@"^7.23.0 || ^8.0.0" from eslint-config-next@14.2.18
+103 error node_modules/eslint-config-next
+103 error   dev eslint-config-next@"14.2.18" from the root project
+103 error
+103 error Fix the upstream dependency conflict, or retry
+103 error this command with --force or --legacy-peer-deps
+103 error to accept an incorrect (and potentially broken) dependency resolution.
+104 error
+104 error
+104 error For a full report see:
+104 error /Users/gambino/Documents/New project/.npm-cache/_logs/2026-02-06T15_25_38_207Z-eresolve-report.txt
+105 silly unfinished npm timer reify 1770391538331
+106 silly unfinished npm timer reify:loadTrees 1770391538331
+107 silly unfinished npm timer idealTree:buildDeps 1770391538335
+108 silly unfinished npm timer idealTree:#root 1770391538335
+109 verbose cwd /Users/gambino/Documents/New project
+110 verbose os Darwin 24.5.0
+111 verbose node v24.13.0
+112 verbose npm  v11.6.2
+113 notice
+113 notice New minor version of npm available! 11.6.2 -> 11.9.0
+113 notice Changelog: https://github.com/npm/cli/releases/tag/v11.9.0
+113 notice To update run: npm install -g npm@11.9.0
+113 notice  { force: true, Symbol(proc-log.meta): true }
+114 verbose exit 1
+115 verbose code 1
+116 error A complete log of this run can be found in: /Users/gambino/Documents/New project/.npm-cache/_logs/2026-02-06T15_25_38_207Z-debug-0.log
