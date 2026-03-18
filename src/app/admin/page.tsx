@@ -50,7 +50,7 @@ export default function AdminPage() {
           genre: formData.get("genre"),
           mood: formData.get("mood"),
           priceCents: Math.round(Number(formData.get("priceUsd")) * 100),
-          previewUrl: formData.get("previewUrl"),
+          previewUrl: String(formData.get("previewUrl") ?? "").trim(),
           archiveFileName: archive.name,
           archiveFileType: archive.type || "application/octet-stream",
           archiveFileSize: archive.size

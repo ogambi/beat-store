@@ -31,20 +31,21 @@ type Props = {
 };
 
 const RING_PACKS: PackItem[] = [
-  { id: "dark-a", image: "/darkmagicianpack-420.png", theme: "dark", tab: "beats" },
   { id: "white-a", image: "/whitedragonpack-420.png", theme: "white", tab: "licenses" },
-  { id: "dark-b", image: "/darkmagicianpack-420.png", theme: "dark", tab: "beats" },
-  { id: "white-b", image: "/whitedragonpack-420.png", theme: "white", tab: "licenses" }
+  { id: "dark-a", image: "/darkmagicianpack-420.png", theme: "dark", tab: "beats" },
+  { id: "white-b", image: "/whitedragonpack-420.png", theme: "white", tab: "licenses" },
+  { id: "dark-b", image: "/darkmagicianpack-420.png", theme: "dark", tab: "beats" }
 ];
 
 const DECK_BY_THEME: Record<PackTheme, string[]> = {
   dark: [],
   white: [
-    "/dark-magician.jpeg",
-    "/dark-magician-girl..webp",
-    "/dark-magician.jpeg",
-    "/dark-magician-girl..webp",
-    "/dark-magician.jpeg"
+    "/DarkmagicianHd.jpg",
+    "/DMG.jpg",
+    "/Magician of chaos.jpg",
+    "/DarkmagicianHd.jpg",
+    "/DMG.jpg",
+    "/Magician of chaos.jpg"
   ]
 };
 
@@ -71,6 +72,7 @@ export function DuelLanding({ beats }: Props) {
   const openTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const cycleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const preloadedThemesRef = useRef<Set<PackTheme>>(new Set());
+  const beatPlayerRef = useRef<HTMLIFrameElement | null>(null);
 
   const shellStyle = useMemo(
     () =>
@@ -181,6 +183,19 @@ export function DuelLanding({ beats }: Props) {
 
   function packLabelFor(pack: PackItem) {
     return pack.tab === "beats" ? "Beats" : "Kits";
+  }
+
+  function sendYouTubeCommand(command: "nextVideo" | "previousVideo") {
+    const frame = beatPlayerRef.current;
+    if (!frame?.contentWindow) return;
+    frame.contentWindow.postMessage(
+      JSON.stringify({
+        event: "command",
+        func: command,
+        args: []
+      }),
+      "*"
+    );
   }
 
   function startRingDrag(clientX: number) {
@@ -354,9 +369,27 @@ export function DuelLanding({ beats }: Props) {
   }, []);
 
   const currentKitImage = deckCards[0] ?? "";
-  const isGirlKit = currentKitImage.includes("girl");
-  const kitTitle = isGirlKit ? "Dark Magician Girl Kit" : "Dark Magician Kit";
-  const kitCheckoutSlug = isGirlKit ? "dark-magician-girl-kit" : "dark-magician-kit";
+  const isSpecialKit = currentKitImage === "/DMG.jpg" || currentKitImage === "/Magician of chaos.jpg";
+  const kitTitle =
+    currentKitImage === "/Magician of chaos.jpg"
+      ? "Magician of Chaos Kit"
+      : currentKitImage === "/DMG.jpg"
+        ? "Dark Magician Girl Kit"
+        : "Dark Magician Kit";
+  const kitCheckoutSlug = "dark-magician-kit";
+  const kitDescription = isSpecialKit
+    ? "COMING SOON"
+    : "Dark Magician Kit is packed with a full dark starter deck pulled straight from the shadow realm. Everything you need to get started battling on the field.";
+  const kitStats = [
+    ["808s", "10"],
+    ["Claps", "10"],
+    ["Hi-Hats", "15"],
+    ["Kicks", "13"],
+    ["Open Hats", "15"],
+    ["Percs", "21"],
+    ["SFX", "26"],
+    ["Snares", "14"]
+  ] as const;
 
   return (
     <main className="duel-page">
@@ -394,7 +427,7 @@ export function DuelLanding({ beats }: Props) {
             Close
           </button>
         </div>
-        <p className="menu-desc">Official beat website. Browse and purchase directly from the duel field</p>
+        <p className="menu-desc">Official beat website. Browse and purchase directly from the shadow realm.</p>
         <Link
           href="/"
           onClick={() => {
@@ -412,12 +445,16 @@ export function DuelLanding({ beats }: Props) {
         </a>
         <hr />
         {beats
-          .filter((beat) => beat.title !== "Golden Window" && beat.title !== "Midnight Asphalt")
+          .filter(
+            (beat) =>
+              beat.title !== "Golden Window" && beat.title !== "Midnight Asphalt"
+          )
           .map((beat) => (
             <Link href={`/checkout/${beat.slug}`} key={beat.id} onClick={() => setMenuOpen(false)}>
               {beat.title}
             </Link>
           ))}
+        <p className="menu-copyright">Copyright gambinoflp Kits — All rights reserved</p>
       </aside>
 
       <section className="duel-field">
@@ -522,9 +559,10 @@ export function DuelLanding({ beats }: Props) {
         ) : null}
 
         {stage === "deck" ? (
-          <div className="deck-stage deck-stage-center">
+          <div className={`deck-stage deck-stage-center ${selectedPack?.tab === "beats" ? "is-beat-stage" : ""}`}>
             {selectedPack?.tab === "licenses" ? (
               <div className="kit-showcase">
+                <p className="kit-click-hint">Click a card</p>
                 <button type="button" className="deck-stack" onClick={cycleDeckTopToBack} aria-label="Cycle deck">
                   {deckCards.map((img, index) => (
                     <span
@@ -543,18 +581,60 @@ export function DuelLanding({ beats }: Props) {
 
                 <aside className="kit-info-panel" aria-label="Kit details">
                   <h3>{kitTitle}</h3>
-                  <p>
-                    <strong>Description</strong>
-                    <span>description here bla bla bla</span>
-                  </p>
-                  <Link href={`/checkout/${kitCheckoutSlug}`} className="kit-buy-btn">
-                    <span>Buy Now!</span>
-                    <small>$59.99</small>
-                  </Link>
+                  {isSpecialKit ? (
+                    <p className="kit-description is-center">{kitDescription}</p>
+                  ) : (
+                    <>
+                      <p className="kit-description">{kitDescription}</p>
+                      <div className="kit-stats" aria-label="Kit stats">
+                        {kitStats.map(([label, value]) => (
+                          <div key={label} className="kit-stat-row">
+                            <span>{label}</span>
+                            <strong>{value}</strong>
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                  {!isSpecialKit ? (
+                    <Link href={`/checkout/${kitCheckoutSlug}`} className="kit-buy-btn">
+                      <span className="kit-buy-btn-label">Buy Now!</span>
+                      <small>$29.99</small>
+                    </Link>
+                  ) : null}
                 </aside>
               </div>
             ) : (
-              <div className="coming-soon-panel">Coming Soon..</div>
+              <div className="beat-foil-showcase" aria-label="Beat foil showcase">
+                <div className="beat-foil-screen beat-foil-screen-standalone">
+                  <iframe
+                    ref={beatPlayerRef}
+                    className="beat-foil-player"
+                    src="https://www.youtube.com/embed/O_kbKD9WSg4?list=PLymoRyrdWciVZb_yZxu_fiEq1k5ZbjbSI&enablejsapi=1"
+                    title="OGambi11 music player"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="beat-foil-controls" aria-label="Playlist controls">
+                  <button type="button" className="beat-foil-control-btn" onClick={() => sendYouTubeCommand("previousVideo")}>
+                    Previous
+                  </button>
+                  <button type="button" className="beat-foil-control-btn" onClick={() => sendYouTubeCommand("nextVideo")}>
+                    Next
+                  </button>
+                </div>
+                <a
+                  href="https://www.youtube.com/watch?v=O_kbKD9WSg4&list=PLymoRyrdWciVZb_yZxu_fiEq1k5ZbjbSI&pp=0gcJCbUEOCosWNinsAgC"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="beat-foil-player-link"
+                >
+                  OPEN YOUTUBE
+                </a>
+              </div>
             )}
           </div>
         ) : null}

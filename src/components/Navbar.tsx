@@ -12,7 +12,6 @@ export function Navbar() {
           <a href="http://instagram.com/gambino.flp" target="_blank" rel="noreferrer">
             Instagram
           </a>
-          <Link href="/admin">Admin</Link>
         </div>
       </nav>
     </header>
