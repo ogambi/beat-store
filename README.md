@@ -62,6 +62,10 @@ Set generated webhook secret into `STRIPE_WEBHOOK_SECRET`.
 - Configure your custom domain and SPF/DKIM for email deliverability.
 - Add legal pages: Terms, Privacy, License Agreement, Refund Policy.
 
+## Launch Files
+- Production checklist: `PRODUCTION_LAUNCH.md`
+- Production env template: `.env.production.example`
+
 ## High-Value Ideas To Add Next
 - Multiple license tiers (MP3 Lease / WAV Lease / Exclusive)
 - Discount codes and bundle deals
