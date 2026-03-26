@@ -1,7 +1,7 @@
 import { notFound, redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import { formatBytes } from "@/lib/format";
-import { getTierById, LICENSE_TIERS, LicenseTierId } from "@/lib/licenseTiers";
+import { LICENSE_TIERS, LicenseTierId } from "@/lib/licenseTiers";
 import { LicenseCheckout } from "@/components/LicenseCheckout";
 import { stripe } from "@/lib/stripe";
 import { env } from "@/lib/env";
@@ -29,12 +29,6 @@ export default async function CheckoutPage({ params, searchParams }: Props) {
   const initialTier = parseTier(searchParams.tier);
 
   if (params.slug === "dark-magician-kit") {
-    const selectedTier = getTierById(initialTier);
-
-    if (!selectedTier) {
-      notFound();
-    }
-
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       success_url: `${env.appUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
@@ -45,17 +39,16 @@ export default async function CheckoutPage({ params, searchParams }: Props) {
           quantity: 1,
           price_data: {
             currency: "usd",
-            unit_amount: selectedTier.priceCents,
+            unit_amount: 2999,
             product_data: {
-              name: beat.title,
-              description: `${selectedTier.name} • ${beat.genre}`
+              name: beat.title
             }
           }
         }
       ],
       metadata: {
         beatId: beat.id,
-        licenseTier: selectedTier.id
+        licenseTier: "kit"
       }
     });
 

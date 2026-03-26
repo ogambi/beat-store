@@ -18,7 +18,10 @@ export default async function HomePage() {
 
   try {
     beats = await db.beat.findMany({
-      where: { isPublished: true },
+      where: {
+        isPublished: true,
+        slug: { not: "dark-magician-kit" }
+      },
       orderBy: { createdAt: "desc" },
       select: {
         id: true,

@@ -400,7 +400,7 @@ export function DuelLanding({ beats, kitProductId }: Props) {
       const response = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ beatId: kitProductId, licenseTier: "mp3_no_tag" })
+        body: JSON.stringify({ beatId: kitProductId })
       });
 
       if (!response.ok) {

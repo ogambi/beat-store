@@ -7,7 +7,7 @@ import { getTierById } from "@/lib/licenseTiers";
 
 const schema = z.object({
   beatId: z.string().min(1),
-  licenseTier: z.string().min(1)
+  licenseTier: z.string().min(1).optional()
 });
 
 export async function POST(req: NextRequest) {
@@ -21,13 +21,15 @@ export async function POST(req: NextRequest) {
 
     const parsed = schema.parse(await req.json());
     const beat = await db.beat.findUnique({ where: { id: parsed.beatId } });
-    const selectedTier = getTierById(parsed.licenseTier);
 
     if (!beat || !beat.isPublished) {
       return NextResponse.json({ error: "Beat not found" }, { status: 404 });
     }
 
-    if (!selectedTier) {
+    const isKit = beat.slug === "dark-magician-kit";
+    const selectedTier = isKit ? null : getTierById(parsed.licenseTier ?? "");
+
+    if (!isKit && !selectedTier) {
       return NextResponse.json({ error: "Invalid license tier" }, { status: 400 });
     }
 
@@ -41,17 +43,21 @@ export async function POST(req: NextRequest) {
           quantity: 1,
           price_data: {
             currency: "usd",
-            unit_amount: selectedTier.priceCents,
+            unit_amount: isKit ? 2999 : selectedTier!.priceCents,
             product_data: {
               name: beat.title,
-              description: `${selectedTier.name} • ${beat.genre} • ${beat.bpm} BPM • ${beat.key}`
+              ...(isKit
+                ? {}
+                : {
+                    description: `${selectedTier!.name} • ${beat.genre} • ${beat.bpm} BPM • ${beat.key}`
+                  })
             }
           }
         }
       ],
       metadata: {
         beatId: beat.id,
-        licenseTier: selectedTier.id
+        licenseTier: isKit ? "kit" : selectedTier!.id
       }
     });
 
