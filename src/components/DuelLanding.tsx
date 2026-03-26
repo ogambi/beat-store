@@ -166,7 +166,7 @@ export function DuelLanding({ kitProductId }: Props) {
   }
 
   function packLabelFor(pack: PackItem) {
-    return pack.theme === "dark" ? "Dark Kit" : "Coming Soon";
+    return pack.theme === "dark" ? "Beats" : "Kits";
   }
 
   function startRingDrag(clientX: number) {
