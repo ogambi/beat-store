@@ -16,7 +16,7 @@ This is a full-stack starter for selling beats online with:
 
 ## Tech Stack
 - Next.js (App Router) + TypeScript
-- Prisma + PostgreSQL
+- Prisma + SQLite (local dev)
 - Stripe (payments)
 - Resend (emails)
 - S3-compatible object storage (AWS S3 / Cloudflare R2 / B2)
@@ -54,16 +54,6 @@ Install Stripe CLI and forward webhooks:
 stripe listen --forward-to localhost:3000/api/webhooks/stripe
 ```
 Set generated webhook secret into `STRIPE_WEBHOOK_SECRET`.
-
-## Stripe Dashboard Product Linking
-For products you want to manage directly in Stripe Dashboard, create a Stripe Product + Price and store the price ID in env.
-
-Example:
-```bash
-STRIPE_DARK_MAGICIAN_KIT_PRICE_ID=price_123
-```
-
-The Dark Magician Kit checkout will then use that Stripe price directly instead of creating a one-off line item.
 
 ## Production Checklist
 - Use PostgreSQL instead of SQLite.

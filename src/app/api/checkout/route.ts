@@ -34,35 +34,27 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid license tier" }, { status: 400 });
     }
 
-    if (isKit && !env.stripeDarkMagicianKitPriceId) {
-      return NextResponse.json(
-        { error: "Dark Magician Kit is missing STRIPE_DARK_MAGICIAN_KIT_PRICE_ID." },
-        { status: 500 }
-      );
-    }
-
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       success_url: `${env.appUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: cancelUrl,
       allow_promotion_codes: true,
       line_items: [
-        isKit
-          ? {
-              quantity: 1,
-              price: env.stripeDarkMagicianKitPriceId!
+        {
+          quantity: 1,
+          price_data: {
+            currency: "usd",
+            unit_amount: isKit ? 2999 : selectedTier!.priceCents,
+            product_data: {
+              name: beat.title,
+              ...(isKit
+                ? {}
+                : {
+                    description: `${selectedTier!.name} • ${beat.genre} • ${beat.bpm} BPM • ${beat.key}`
+                  })
             }
-          : {
-              quantity: 1,
-              price_data: {
-                currency: "usd",
-                unit_amount: selectedTier!.priceCents,
-                product_data: {
-                  name: beat.title,
-                  description: `${selectedTier!.name} • ${beat.genre} • ${beat.bpm} BPM • ${beat.key}`
-                }
-              }
-            }
+          }
+        }
       ],
       metadata: {
         beatId: beat.id,
