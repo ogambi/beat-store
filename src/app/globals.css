@@ -3245,10 +3245,10 @@ body {
     left: auto !important;
     top: auto !important;
     transform: none !important;
-    width: 114px !important;
-    max-width: 114px !important;
-    min-width: 114px !important;
-    margin: 0 auto !important;
+    width: min(190px, 52vw) !important;
+    max-width: min(190px, 52vw) !important;
+    min-width: min(190px, 52vw) !important;
+    margin: 2px auto 0 !important;
   }
 
   .deck-stage.deck-stage-center .kit-showcase .kit-info-panel,
@@ -3257,11 +3257,60 @@ body {
   .kit-info-panel {
     position: relative !important;
     align-self: center !important;
-    width: min(88vw, 320px) !important;
-    max-width: min(88vw, 320px) !important;
+    width: min(84vw, 286px) !important;
+    max-width: min(84vw, 286px) !important;
     margin: 0 !important;
-    padding: 0.78rem 0.78rem 0.86rem !important;
-    gap: 0.58rem !important;
+    padding: 0.62rem 0.62rem 0.72rem !important;
+    gap: 0.42rem !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  .kit-info-panel h3 {
+    font-size: 0.92rem !important;
+    line-height: 1.05 !important;
+    letter-spacing: 0.05em !important;
+    margin: 0 !important;
+  }
+
+  .kit-info-panel p,
+  .kit-info-panel .kit-description {
+    font-size: 0.72rem !important;
+    line-height: 1.28 !important;
+    margin: 0 !important;
+  }
+
+  .kit-info-panel .kit-description {
+    max-width: 100% !important;
+    min-height: 0 !important;
+  }
+
+  .kit-stats {
+    gap: 0.22rem !important;
+  }
+
+  .kit-stat-row {
+    font-size: 0.64rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .kit-stat-row strong {
+    font-size: 0.72rem !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-buy-btn,
+  .kit-buy-btn {
+    margin-top: 0.1rem !important;
+    padding: 0.58rem 0.7rem !important;
+    gap: 0.08rem !important;
+  }
+
+  .kit-buy-btn-label {
+    font-size: 0.88rem !important;
+  }
+
+  .kit-buy-btn small {
+    font-size: 0.78rem !important;
   }
 }
 
@@ -3272,16 +3321,16 @@ body {
   .deck-stage.deck-stage-center .kit-info-panel,
   .kit-showcase .kit-info-panel,
   .kit-info-panel {
-    width: min(90vw, 300px) !important;
-    max-width: min(90vw, 300px) !important;
+    width: min(86vw, 272px) !important;
+    max-width: min(86vw, 272px) !important;
   }
 
   .deck-stage.deck-stage-center .kit-showcase > .deck-stack,
   .deck-stage.deck-stage-center .kit-showcase .deck-stack,
   .kit-showcase > .deck-stack,
   .kit-showcase .deck-stack {
-    width: 102px !important;
-    max-width: 102px !important;
-    min-width: 102px !important;
+    width: min(176px, 50vw) !important;
+    max-width: min(176px, 50vw) !important;
+    min-width: min(176px, 50vw) !important;
   }
 }
