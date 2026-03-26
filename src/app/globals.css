@@ -3015,3 +3015,58 @@ body,
     margin-top: 268px !important;
   }
 }
+
+/* Mobile safari fit fix */
+html,
+body {
+  background: #05050a !important;
+  min-height: 100% !important;
+}
+
+@media (max-width: 680px) {
+  html,
+  body {
+    background-image: none !important;
+    background-color: #05050a !important;
+    overscroll-behavior-y: none;
+  }
+
+  body {
+    overflow-x: hidden !important;
+  }
+
+  .duel-page {
+    min-height: 100svh !important;
+    min-height: 100dvh !important;
+    background-color: #05050a !important;
+    padding-bottom: 0 !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-showcase .deck-stack,
+  .kit-showcase .deck-stack {
+    width: min(142px, 38vw) !important;
+    max-width: min(142px, 38vw) !important;
+    min-width: min(142px, 38vw) !important;
+    top: 118px !important;
+  }
+
+  .kit-showcase .kit-info-panel,
+  .kit-info-panel {
+    margin-top: 242px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .deck-stage.deck-stage-center .kit-showcase .deck-stack,
+  .kit-showcase .deck-stack {
+    width: min(132px, 37vw) !important;
+    max-width: min(132px, 37vw) !important;
+    min-width: min(132px, 37vw) !important;
+    top: 114px !important;
+  }
+
+  .kit-showcase .kit-info-panel,
+  .kit-info-panel {
+    margin-top: 228px !important;
+  }
+}
