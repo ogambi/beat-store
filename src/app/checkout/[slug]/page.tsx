@@ -29,6 +29,10 @@ export default async function CheckoutPage({ params, searchParams }: Props) {
   const initialTier = parseTier(searchParams.tier);
 
   if (params.slug === "dark-magician-kit") {
+    if (!env.stripeDarkMagicianKitPriceId) {
+      throw new Error("Missing STRIPE_DARK_MAGICIAN_KIT_PRICE_ID for Dark Magician Kit checkout.");
+    }
+
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       success_url: `${env.appUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
@@ -37,13 +41,7 @@ export default async function CheckoutPage({ params, searchParams }: Props) {
       line_items: [
         {
           quantity: 1,
-          price_data: {
-            currency: "usd",
-            unit_amount: 2999,
-            product_data: {
-              name: beat.title
-            }
-          }
+          price: env.stripeDarkMagicianKitPriceId
         }
       ],
       metadata: {

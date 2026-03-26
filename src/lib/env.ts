@@ -6,12 +6,17 @@ function required(key: string): string {
   return value;
 }
 
+function optional(key: string): string | undefined {
+  return process.env[key] || undefined;
+}
+
 export const env = {
   appUrl: required("NEXT_PUBLIC_APP_URL"),
   appName: required("APP_NAME"),
   adminSecret: required("ADMIN_SECRET"),
   stripeSecretKey: required("STRIPE_SECRET_KEY"),
   stripeWebhookSecret: required("STRIPE_WEBHOOK_SECRET"),
+  stripeDarkMagicianKitPriceId: optional("STRIPE_DARK_MAGICIAN_KIT_PRICE_ID"),
   resendApiKey: required("RESEND_API_KEY"),
   emailFrom: required("EMAIL_FROM"),
   storageRegion: required("STORAGE_REGION"),
