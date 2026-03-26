@@ -3168,3 +3168,120 @@ body {
     margin-top: 176px !important;
   }
 }
+
+/* Mobile rescue layout: stacked, centered, fully visible */
+@media (max-width: 680px) {
+  html,
+  body,
+  .duel-page,
+  .duel-field,
+  .deck-stage.deck-stage-center {
+    background-image: url("/background.webp") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-color: #05050a !important;
+  }
+
+  html,
+  body {
+    overflow: hidden !important;
+  }
+
+  body {
+    position: static !important;
+    inset: auto !important;
+    width: auto !important;
+  }
+
+  .duel-page {
+    min-height: 100svh !important;
+    min-height: 100dvh !important;
+    height: 100svh !important;
+    height: 100dvh !important;
+    overflow: hidden !important;
+  }
+
+  .deck-stage.deck-stage-center {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    padding-top: calc(env(safe-area-inset-top) + 108px) !important;
+    padding-bottom: calc(env(safe-area-inset-bottom) + 12px) !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-showcase,
+  .kit-showcase {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: min(88vw, 320px) !important;
+    max-width: min(88vw, 320px) !important;
+    min-height: 0 !important;
+    gap: 10px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  .kit-click-hint {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 0 0 2px !important;
+    font-size: 0.72rem !important;
+    text-align: center !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-showcase > .deck-stack,
+  .deck-stage.deck-stage-center .kit-showcase .deck-stack,
+  .kit-showcase > .deck-stack,
+  .kit-showcase .deck-stack {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 114px !important;
+    max-width: 114px !important;
+    min-width: 114px !important;
+    margin: 0 auto !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-showcase .kit-info-panel,
+  .deck-stage.deck-stage-center .kit-info-panel,
+  .kit-showcase .kit-info-panel,
+  .kit-info-panel {
+    position: relative !important;
+    align-self: center !important;
+    width: min(88vw, 320px) !important;
+    max-width: min(88vw, 320px) !important;
+    margin: 0 !important;
+    padding: 0.78rem 0.78rem 0.86rem !important;
+    gap: 0.58rem !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .deck-stage.deck-stage-center .kit-showcase,
+  .kit-showcase,
+  .deck-stage.deck-stage-center .kit-showcase .kit-info-panel,
+  .deck-stage.deck-stage-center .kit-info-panel,
+  .kit-showcase .kit-info-panel,
+  .kit-info-panel {
+    width: min(90vw, 300px) !important;
+    max-width: min(90vw, 300px) !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-showcase > .deck-stack,
+  .deck-stage.deck-stage-center .kit-showcase .deck-stack,
+  .kit-showcase > .deck-stack,
+  .kit-showcase .deck-stack {
+    width: 102px !important;
+    max-width: 102px !important;
+    min-width: 102px !important;
+  }
+}
