@@ -14,6 +14,7 @@ export default async function HomePage() {
     mood: string;
     previewUrl: string;
   }> = [];
+  let kitProductId: string | null = null;
 
   try {
     beats = await db.beat.findMany({
@@ -30,9 +31,16 @@ export default async function HomePage() {
         previewUrl: true
       }
     });
+
+    const kitProduct = await db.beat.findUnique({
+      where: { slug: "dark-magician-kit" },
+      select: { id: true }
+    });
+
+    kitProductId = kitProduct?.id ?? null;
   } catch (error) {
     console.error("HomePage beat query failed. Falling back to empty list.", error);
   }
 
-  return <DuelLanding beats={beats} />;
+  return <DuelLanding beats={beats} kitProductId={kitProductId} />;
 }

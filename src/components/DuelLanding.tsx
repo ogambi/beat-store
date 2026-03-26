@@ -28,6 +28,7 @@ type PackItem = {
 
 type Props = {
   beats: BeatPreview[];
+  kitProductId: string | null;
 };
 
 const RING_PACKS: PackItem[] = [
@@ -49,9 +50,10 @@ const DECK_BY_THEME: Record<PackTheme, string[]> = {
   ]
 };
 
-export function DuelLanding({ beats }: Props) {
+export function DuelLanding({ beats, kitProductId }: Props) {
   const [activeTab, setActiveTab] = useState<TabId>("beats");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [kitCheckoutLoading, setKitCheckoutLoading] = useState(false);
 
   const [stage, setStage] = useState<Stage>("carousel");
   const [ringRotation, setRingRotation] = useState(0);
@@ -375,8 +377,7 @@ export function DuelLanding({ beats }: Props) {
       ? "Magician of Chaos Kit"
       : currentKitImage === "/DMG.jpg"
         ? "Dark Magician Girl Kit"
-        : "Dark Magician Kit";
-  const kitCheckoutSlug = "dark-magician-kit";
+      : "Dark Magician Kit";
   const kitDescription = isSpecialKit
     ? "COMING SOON"
     : "Dark Magician Kit is packed with a full dark starter deck pulled straight from the shadow realm. Everything you need to get started battling on the field.";
@@ -390,6 +391,32 @@ export function DuelLanding({ beats }: Props) {
     ["SFX", "26"],
     ["Snares", "14"]
   ] as const;
+
+  async function startKitCheckout() {
+    if (!kitProductId || kitCheckoutLoading) return;
+
+    setKitCheckoutLoading(true);
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ beatId: kitProductId, licenseTier: "mp3_no_tag" })
+      });
+
+      if (!response.ok) {
+        const payload = (await response.json().catch(() => null)) as { error?: string } | null;
+        throw new Error(payload?.error ?? "Checkout failed");
+      }
+
+      const data = (await response.json()) as { url: string };
+      window.location.href = data.url;
+    } catch (error) {
+      console.error(error);
+      alert(error instanceof Error ? error.message : "Could not start checkout. Try again.");
+    } finally {
+      setKitCheckoutLoading(false);
+    }
+  }
 
   return (
     <main className="duel-page">
@@ -597,10 +624,15 @@ export function DuelLanding({ beats }: Props) {
                     </>
                   )}
                   {!isSpecialKit ? (
-                    <Link href={`/checkout/${kitCheckoutSlug}`} className="kit-buy-btn">
+                    <button
+                      type="button"
+                      className="kit-buy-btn"
+                      onClick={startKitCheckout}
+                      disabled={!kitProductId || kitCheckoutLoading}
+                    >
                       <span className="kit-buy-btn-label">Buy Now!</span>
                       <small>$29.99</small>
-                    </Link>
+                    </button>
                   ) : null}
                 </aside>
               </div>
