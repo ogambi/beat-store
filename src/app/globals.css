@@ -2916,6 +2916,7 @@ body,
     min-height: 0 !important;
     gap: 18px !important;
     padding: 0 !important;
+    padding-top: 8px !important;
   }
 
   .kit-click-hint {
@@ -2924,10 +2925,10 @@ body,
   }
 
   .kit-showcase .deck-stack {
-    width: 96px !important;
-    max-width: 96px !important;
-    min-width: 96px !important;
-    top: 86px !important;
+    width: 76px !important;
+    max-width: 76px !important;
+    min-width: 76px !important;
+    top: 92px !important;
   }
 
   .kit-showcase .kit-info-panel,
@@ -2938,7 +2939,7 @@ body,
     height: auto !important;
     padding: 0.84rem 0.84rem 0.92rem !important;
     gap: 0.68rem !important;
-    margin-top: 168px !important;
+    margin-top: 196px !important;
   }
 
   .kit-info-panel h3 {
@@ -2998,10 +2999,10 @@ body,
   }
 
   .kit-showcase .deck-stack {
-    width: 88px !important;
-    max-width: 88px !important;
-    min-width: 88px !important;
-    top: 84px !important;
+    width: 70px !important;
+    max-width: 70px !important;
+    min-width: 70px !important;
+    top: 90px !important;
   }
 
   .kit-showcase .kit-info-panel,
@@ -3009,6 +3010,6 @@ body,
     width: min(94vw, 336px) !important;
     max-width: min(94vw, 336px) !important;
     padding: 0.82rem 0.82rem 0.92rem !important;
-    margin-top: 156px !important;
+    margin-top: 186px !important;
   }
 }
