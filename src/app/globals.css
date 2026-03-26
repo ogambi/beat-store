@@ -2886,7 +2886,7 @@ body,
   }
 
   .ring-pack-title {
-    top: 58px !important;
+    top: 38px !important;
     font-size: 0.84rem !important;
     letter-spacing: 0.06em !important;
   }
@@ -2896,31 +2896,38 @@ body,
   }
 
   .selected-pack-shell {
-    width: min(72vw, 268px) !important;
-    transform: scale(1.02) !important;
+    width: min(78vw, 286px) !important;
+    transform: scale(1.06) !important;
   }
 
   .slice-hint {
-    top: 48px !important;
-    font-size: 0.72rem !important;
+    top: 22px !important;
+    font-size: 0.68rem !important;
     padding: 0.3rem 0.5rem !important;
   }
 
   .deck-stage.deck-stage-center {
-    padding: 118px 12px 28px !important;
+    padding: 136px 12px 28px !important;
     min-height: calc(100dvh - 12px) !important;
   }
 
   .kit-showcase {
     width: min(100%, 360px) !important;
-    gap: 12px !important;
+    min-height: 0 !important;
+    gap: 18px !important;
     padding: 0 !important;
   }
 
+  .kit-click-hint {
+    top: 12px !important;
+    font-size: 0.76rem !important;
+  }
+
   .kit-showcase .deck-stack {
-    width: 118px !important;
-    max-width: 118px !important;
-    min-width: 118px !important;
+    width: 96px !important;
+    max-width: 96px !important;
+    min-width: 96px !important;
+    top: 86px !important;
   }
 
   .kit-showcase .kit-info-panel,
@@ -2929,8 +2936,9 @@ body,
     max-width: min(92vw, 352px) !important;
     min-height: 0 !important;
     height: auto !important;
-    padding: 0.9rem 0.9rem 1rem !important;
+    padding: 0.84rem 0.84rem 0.92rem !important;
     gap: 0.68rem !important;
+    margin-top: 168px !important;
   }
 
   .kit-info-panel h3 {
@@ -2978,17 +2986,22 @@ body,
   }
 
   .selected-pack-shell {
-    width: min(76vw, 246px) !important;
+    width: min(82vw, 262px) !important;
   }
 
   .deck-stage.deck-stage-center {
-    padding-top: 110px !important;
+    padding-top: 128px !important;
+  }
+
+  .kit-click-hint {
+    top: 20px !important;
   }
 
   .kit-showcase .deck-stack {
-    width: 108px !important;
-    max-width: 108px !important;
-    min-width: 108px !important;
+    width: 88px !important;
+    max-width: 88px !important;
+    min-width: 88px !important;
+    top: 84px !important;
   }
 
   .kit-showcase .kit-info-panel,
@@ -2996,5 +3009,6 @@ body,
     width: min(94vw, 336px) !important;
     max-width: min(94vw, 336px) !important;
     padding: 0.82rem 0.82rem 0.92rem !important;
+    margin-top: 156px !important;
   }
 }
