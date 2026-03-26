@@ -3070,3 +3070,90 @@ body {
     margin-top: 228px !important;
   }
 }
+
+/* Mobile hard lock: no scroll + smaller kit stack */
+@media (max-width: 680px) {
+  html,
+  body {
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    overflow: hidden !important;
+    overscroll-behavior: none !important;
+    background: #05050a !important;
+  }
+
+  body {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+  }
+
+  .duel-page {
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+  }
+
+  .duel-field {
+    min-height: 100dvh !important;
+    height: 100dvh !important;
+    overflow: hidden !important;
+  }
+
+  .deck-stage.deck-stage-center {
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    padding: 138px 10px 18px !important;
+    overflow: hidden !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-showcase,
+  .kit-showcase {
+    width: min(92vw, 340px) !important;
+    max-width: min(92vw, 340px) !important;
+    min-height: 0 !important;
+    gap: 12px !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-showcase > .deck-stack,
+  .deck-stage.deck-stage-center .kit-showcase .deck-stack,
+  .kit-showcase > .deck-stack,
+  .kit-showcase .deck-stack {
+    width: 118px !important;
+    max-width: 118px !important;
+    min-width: 118px !important;
+    top: 98px !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-showcase .kit-info-panel,
+  .deck-stage.deck-stage-center .kit-info-panel,
+  .kit-showcase .kit-info-panel,
+  .kit-info-panel {
+    width: min(92vw, 340px) !important;
+    max-width: min(92vw, 340px) !important;
+    margin-top: 214px !important;
+    padding: 0.82rem 0.82rem 0.9rem !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .deck-stage.deck-stage-center .kit-showcase > .deck-stack,
+  .deck-stage.deck-stage-center .kit-showcase .deck-stack,
+  .kit-showcase > .deck-stack,
+  .kit-showcase .deck-stack {
+    width: 108px !important;
+    max-width: 108px !important;
+    min-width: 108px !important;
+    top: 96px !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-showcase .kit-info-panel,
+  .deck-stage.deck-stage-center .kit-info-panel,
+  .kit-showcase .kit-info-panel,
+  .kit-info-panel {
+    margin-top: 198px !important;
+  }
+}
