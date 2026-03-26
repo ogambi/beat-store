@@ -3208,7 +3208,7 @@ body {
     align-items: center !important;
     justify-content: flex-start !important;
     gap: 10px !important;
-    padding-top: calc(env(safe-area-inset-top) + 108px) !important;
+    padding-top: calc(env(safe-area-inset-top) + 78px) !important;
     padding-bottom: calc(env(safe-area-inset-bottom) + 12px) !important;
   }
 
@@ -3232,7 +3232,7 @@ body {
     top: auto !important;
     left: auto !important;
     transform: none !important;
-    margin: 0 0 2px !important;
+    margin: 0 0 1px !important;
     font-size: 0.72rem !important;
     text-align: center !important;
   }
@@ -3248,7 +3248,7 @@ body {
     width: min(190px, 52vw) !important;
     max-width: min(190px, 52vw) !important;
     min-width: min(190px, 52vw) !important;
-    margin: 2px auto 0 !important;
+    margin: -12px auto 0 !important;
   }
 
   .deck-stage.deck-stage-center .kit-showcase .kit-info-panel,
@@ -3259,7 +3259,7 @@ body {
     align-self: center !important;
     width: min(84vw, 286px) !important;
     max-width: min(84vw, 286px) !important;
-    margin: 0 !important;
+    margin: -14px 0 0 !important;
     padding: 0.62rem 0.62rem 0.72rem !important;
     gap: 0.42rem !important;
     min-height: 0 !important;
@@ -3315,6 +3315,10 @@ body {
 }
 
 @media (max-width: 420px) {
+  .deck-stage.deck-stage-center {
+    padding-top: calc(env(safe-area-inset-top) + 70px) !important;
+  }
+
   .deck-stage.deck-stage-center .kit-showcase,
   .kit-showcase,
   .deck-stage.deck-stage-center .kit-showcase .kit-info-panel,
@@ -3332,5 +3336,6 @@ body {
     width: min(176px, 50vw) !important;
     max-width: min(176px, 50vw) !important;
     min-width: min(176px, 50vw) !important;
+    margin-top: -16px !important;
   }
 }
