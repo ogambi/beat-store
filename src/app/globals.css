@@ -2820,7 +2820,181 @@ body,
     width: min(980px, 96vw);
   }
 
-  .beat-foil-screen {
+.beat-foil-screen {
     width: min(860px, 94vw);
+  }
+}
+
+/* Mobile pass v1: stable phone layout */
+@media (max-width: 680px) {
+  .duel-page {
+    min-height: 100dvh !important;
+    padding-bottom: 24px !important;
+  }
+
+  .top-brand {
+    height: 132px !important;
+    width: min(100vw, 420px) !important;
+  }
+
+  .top-brand-logo {
+    transform: none !important;
+    animation-duration: 3.2s !important;
+  }
+
+  .menu-toggle {
+    top: 12px !important;
+    left: 12px !important;
+    min-width: 112px !important;
+    height: 44px !important;
+    padding: 0.34rem 0.68rem !important;
+    gap: 0.4rem !important;
+  }
+
+  .menu-toggle-icon {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .menu-toggle-label {
+    font-size: 0.8rem !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  .left-back-btn {
+    top: 88px !important;
+    left: 12px !important;
+    font-size: 0.72rem !important;
+    padding: 0.48rem 0.68rem !important;
+  }
+
+  .pack-ring-scene {
+    width: 100vw !important;
+    height: 58vh !important;
+    min-height: 420px !important;
+    max-height: 560px !important;
+    perspective: 1200px !important;
+    perspective-origin: 50% 36% !important;
+  }
+
+  .ring-pack {
+    transform-style: preserve-3d !important;
+  }
+
+  .ring-pack {
+    margin-top: -6px !important;
+  }
+
+  .ring-pack-title {
+    top: 58px !important;
+    font-size: 0.84rem !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  .ring-pack-image {
+    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.46)) !important;
+  }
+
+  .selected-pack-shell {
+    width: min(72vw, 268px) !important;
+    transform: scale(1.02) !important;
+  }
+
+  .slice-hint {
+    top: 48px !important;
+    font-size: 0.72rem !important;
+    padding: 0.3rem 0.5rem !important;
+  }
+
+  .deck-stage.deck-stage-center {
+    padding: 118px 12px 28px !important;
+    min-height: calc(100dvh - 12px) !important;
+  }
+
+  .kit-showcase {
+    width: min(100%, 360px) !important;
+    gap: 12px !important;
+    padding: 0 !important;
+  }
+
+  .kit-showcase .deck-stack {
+    width: 118px !important;
+    max-width: 118px !important;
+    min-width: 118px !important;
+  }
+
+  .kit-showcase .kit-info-panel,
+  .kit-info-panel {
+    width: min(92vw, 352px) !important;
+    max-width: min(92vw, 352px) !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 0.9rem 0.9rem 1rem !important;
+    gap: 0.68rem !important;
+  }
+
+  .kit-info-panel h3 {
+    font-size: 1.04rem !important;
+    text-align: center !important;
+  }
+
+  .kit-info-panel p,
+  .kit-info-panel .kit-description {
+    font-size: 0.84rem !important;
+    line-height: 1.45 !important;
+    text-align: center !important;
+    justify-self: center !important;
+  }
+
+  .kit-stats {
+    gap: 0.36rem !important;
+  }
+
+  .kit-stat-row {
+    font-size: 0.72rem !important;
+  }
+
+  .kit-stat-row strong {
+    font-size: 0.8rem !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-buy-btn,
+  .kit-buy-btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    padding: 0.7rem 0.8rem !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .top-brand {
+    height: 118px !important;
+  }
+
+  .pack-ring-scene {
+    height: 54vh !important;
+    min-height: 390px !important;
+  }
+
+  .selected-pack-shell {
+    width: min(76vw, 246px) !important;
+  }
+
+  .deck-stage.deck-stage-center {
+    padding-top: 110px !important;
+  }
+
+  .kit-showcase .deck-stack {
+    width: 108px !important;
+    max-width: 108px !important;
+    min-width: 108px !important;
+  }
+
+  .kit-showcase .kit-info-panel,
+  .kit-info-panel {
+    width: min(94vw, 336px) !important;
+    max-width: min(94vw, 336px) !important;
+    padding: 0.82rem 0.82rem 0.92rem !important;
   }
 }
