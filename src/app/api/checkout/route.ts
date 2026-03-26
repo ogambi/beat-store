@@ -28,6 +28,7 @@ export async function POST(req: NextRequest) {
 
     const isKit = beat.slug === "dark-magician-kit";
     const selectedTier = isKit ? null : getTierById(parsed.licenseTier ?? "");
+    const cancelUrl = isKit ? env.appUrl : `${env.appUrl}/cancel`;
 
     if (!isKit && !selectedTier) {
       return NextResponse.json({ error: "Invalid license tier" }, { status: 400 });
@@ -36,7 +37,7 @@ export async function POST(req: NextRequest) {
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       success_url: `${env.appUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${env.appUrl}/cancel`,
+      cancel_url: cancelUrl,
       allow_promotion_codes: true,
       line_items: [
         {

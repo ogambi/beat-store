@@ -32,7 +32,7 @@ export default async function CheckoutPage({ params, searchParams }: Props) {
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       success_url: `${env.appUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${env.appUrl}/cancel`,
+      cancel_url: env.appUrl,
       allow_promotion_codes: true,
       line_items: [
         {
