@@ -544,54 +544,63 @@ export function DuelLanding({ kitProductId }: Props) {
 
         {stage === "deck" ? (
           <div className="deck-stage deck-stage-center">
-            <div className="kit-showcase">
-              <p className="kit-click-hint">Click a card</p>
-              <button type="button" className="deck-stack" onClick={cycleDeckTopToBack} aria-label="Cycle deck">
-                {deckCards.map((img, index) => (
-                  <span
-                    key={`${img}-${index}-${deckCards.length}`}
-                    className={"deck-item " + (index === 0 ? "is-top " : "") + (index === 0 && isDeckCycling ? "is-cycling" : "")}
-                    style={{
-                      zIndex: deckCards.length - index,
-                      transform: `translateY(${index * 7}px) rotate(${index * 1.1}deg)`
-                    }}
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={img} alt="Deck card" className="deck-item-image" draggable={false} />
-                  </span>
-                ))}
-              </button>
+            {selectedPack?.theme === "white" ? (
+              <div className="kit-showcase">
+                <p className="kit-click-hint">Click a card</p>
+                <button type="button" className="deck-stack" onClick={cycleDeckTopToBack} aria-label="Cycle deck">
+                  {deckCards.map((img, index) => (
+                    <span
+                      key={`${img}-${index}-${deckCards.length}`}
+                      className={"deck-item " + (index === 0 ? "is-top " : "") + (index === 0 && isDeckCycling ? "is-cycling" : "")}
+                      style={{
+                        zIndex: deckCards.length - index,
+                        transform: `translateY(${index * 7}px) rotate(${index * 1.1}deg)`
+                      }}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={img} alt="Deck card" className="deck-item-image" draggable={false} />
+                    </span>
+                  ))}
+                </button>
 
-              <aside className="kit-info-panel" aria-label="Kit details">
-                <h3>{kitTitle}</h3>
-                {isSpecialKit ? (
-                  <p className="kit-description is-center">{kitDescription}</p>
-                ) : (
-                  <>
-                    <p className="kit-description">{kitDescription}</p>
-                    <div className="kit-stats" aria-label="Kit stats">
-                      {kitStats.map(([label, value]) => (
-                        <div key={label} className="kit-stat-row">
-                          <span>{label}</span>
-                          <strong>{value}</strong>
-                        </div>
-                      ))}
-                    </div>
-                  </>
-                )}
-                {!isSpecialKit ? (
-                  <button
-                    type="button"
-                    className="kit-buy-btn"
-                    onClick={startKitCheckout}
-                    disabled={!kitProductId || kitCheckoutLoading}
-                  >
-                    <span className="kit-buy-btn-label">Buy Now!</span>
-                    <small>$29.99</small>
-                  </button>
-                ) : null}
-              </aside>
-            </div>
+                <aside className="kit-info-panel" aria-label="Kit details">
+                  <h3>{kitTitle}</h3>
+                  {isSpecialKit ? (
+                    <p className="kit-description is-center">{kitDescription}</p>
+                  ) : (
+                    <>
+                      <p className="kit-description">{kitDescription}</p>
+                      <div className="kit-stats" aria-label="Kit stats">
+                        {kitStats.map(([label, value]) => (
+                          <div key={label} className="kit-stat-row">
+                            <span>{label}</span>
+                            <strong>{value}</strong>
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                  {!isSpecialKit ? (
+                    <button
+                      type="button"
+                      className="kit-buy-btn"
+                      onClick={startKitCheckout}
+                      disabled={!kitProductId || kitCheckoutLoading}
+                    >
+                      <span className="kit-buy-btn-label">Buy Now!</span>
+                      <small>$29.99</small>
+                    </button>
+                  ) : null}
+                </aside>
+              </div>
+            ) : (
+              <div className="kit-showcase">
+                <aside className="kit-info-panel" aria-label="Beats coming soon">
+                  <h3>Beats</h3>
+                  <p className="kit-description is-center">COMING SOON</p>
+                </aside>
+              </div>
+            )}
           </div>
         ) : null}
       </section>
