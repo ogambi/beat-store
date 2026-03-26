@@ -3079,7 +3079,11 @@ body {
     min-height: 100dvh !important;
     overflow: hidden !important;
     overscroll-behavior: none !important;
-    background: #05050a !important;
+    background-image: url("/background.webp") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-color: #05050a !important;
   }
 
   body {
@@ -3093,6 +3097,11 @@ body {
     min-height: 100dvh !important;
     overflow: hidden !important;
     padding: 0 !important;
+    background-image: url("/background.webp") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-color: #05050a !important;
   }
 
   .duel-field {
@@ -3114,16 +3123,17 @@ body {
     max-width: min(92vw, 340px) !important;
     min-height: 0 !important;
     gap: 12px !important;
+    justify-items: center !important;
   }
 
   .deck-stage.deck-stage-center .kit-showcase > .deck-stack,
   .deck-stage.deck-stage-center .kit-showcase .deck-stack,
   .kit-showcase > .deck-stack,
   .kit-showcase .deck-stack {
-    width: 118px !important;
-    max-width: 118px !important;
-    min-width: 118px !important;
-    top: 98px !important;
+    width: 142px !important;
+    max-width: 142px !important;
+    min-width: 142px !important;
+    top: 108px !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
   }
@@ -3134,8 +3144,9 @@ body {
   .kit-info-panel {
     width: min(92vw, 340px) !important;
     max-width: min(92vw, 340px) !important;
-    margin-top: 214px !important;
+    margin-top: 188px !important;
     padding: 0.82rem 0.82rem 0.9rem !important;
+    align-self: start !important;
   }
 }
 
@@ -3144,16 +3155,16 @@ body {
   .deck-stage.deck-stage-center .kit-showcase .deck-stack,
   .kit-showcase > .deck-stack,
   .kit-showcase .deck-stack {
-    width: 108px !important;
-    max-width: 108px !important;
-    min-width: 108px !important;
-    top: 96px !important;
+    width: 132px !important;
+    max-width: 132px !important;
+    min-width: 132px !important;
+    top: 104px !important;
   }
 
   .deck-stage.deck-stage-center .kit-showcase .kit-info-panel,
   .deck-stage.deck-stage-center .kit-info-panel,
   .kit-showcase .kit-info-panel,
   .kit-info-panel {
-    margin-top: 198px !important;
+    margin-top: 176px !important;
   }
 }
