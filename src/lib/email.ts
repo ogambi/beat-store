@@ -12,7 +12,7 @@ export async function sendDownloadEmail(params: {
   await resend.emails.send({
     from: env.emailFrom,
     to: params.to,
-    subject: `Your beat is ready: ${params.beatTitle}`,
+    subject: `Your order is ready: ${params.beatTitle}`,
     html: `
       <div style="font-family:Arial,sans-serif;line-height:1.5;color:#111;">
         <h2>Thank you for your order</h2>

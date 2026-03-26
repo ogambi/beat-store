@@ -3,11 +3,9 @@ import { z } from "zod";
 import { db } from "@/lib/db";
 import { stripe } from "@/lib/stripe";
 import { env } from "@/lib/env";
-import { getTierById } from "@/lib/licenseTiers";
 
 const schema = z.object({
-  beatId: z.string().min(1),
-  licenseTier: z.string().min(1).optional()
+  beatId: z.string().min(1)
 });
 
 export async function POST(req: NextRequest) {
@@ -26,39 +24,30 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Beat not found" }, { status: 404 });
     }
 
-    const isKit = beat.slug === "dark-magician-kit";
-    const selectedTier = isKit ? null : getTierById(parsed.licenseTier ?? "");
-    const cancelUrl = isKit ? env.appUrl : `${env.appUrl}/cancel`;
-
-    if (!isKit && !selectedTier) {
-      return NextResponse.json({ error: "Invalid license tier" }, { status: 400 });
+    if (beat.slug !== "dark-magician-kit") {
+      return NextResponse.json({ error: "Product unavailable" }, { status: 400 });
     }
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       success_url: `${env.appUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: cancelUrl,
+      cancel_url: env.appUrl,
       allow_promotion_codes: true,
       line_items: [
         {
           quantity: 1,
           price_data: {
             currency: "usd",
-            unit_amount: isKit ? 2999 : selectedTier!.priceCents,
+            unit_amount: 2999,
             product_data: {
-              name: beat.title,
-              ...(isKit
-                ? {}
-                : {
-                    description: `${selectedTier!.name} • ${beat.genre} • ${beat.bpm} BPM • ${beat.key}`
-                  })
+              name: beat.title
             }
           }
         }
       ],
       metadata: {
         beatId: beat.id,
-        licenseTier: isKit ? "kit" : selectedTier!.id
+        licenseTier: "kit"
       }
     });
 

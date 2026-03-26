@@ -2,20 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
-import { LICENSE_TIERS } from "@/lib/licenseTiers";
 
-type BeatPreview = {
-  id: string;
-  slug: string;
-  title: string;
-  bpm: number;
-  key: string;
-  genre: string;
-  mood: string;
-  previewUrl: string;
-};
-
-type TabId = "beats" | "licenses";
 type PackTheme = "dark" | "white";
 type Stage = "carousel" | "focus" | "slicing" | "opening" | "deck";
 
@@ -23,19 +10,17 @@ type PackItem = {
   id: string;
   image: string;
   theme: PackTheme;
-  tab: TabId;
 };
 
 type Props = {
-  beats: BeatPreview[];
   kitProductId: string | null;
 };
 
 const RING_PACKS: PackItem[] = [
-  { id: "white-a", image: "/whitedragonpack-420.png", theme: "white", tab: "licenses" },
-  { id: "dark-a", image: "/darkmagicianpack-420.png", theme: "dark", tab: "beats" },
-  { id: "white-b", image: "/whitedragonpack-420.png", theme: "white", tab: "licenses" },
-  { id: "dark-b", image: "/darkmagicianpack-420.png", theme: "dark", tab: "beats" }
+  { id: "white-a", image: "/whitedragonpack-420.png", theme: "white" },
+  { id: "dark-a", image: "/darkmagicianpack-420.png", theme: "dark" },
+  { id: "white-b", image: "/whitedragonpack-420.png", theme: "white" },
+  { id: "dark-b", image: "/darkmagicianpack-420.png", theme: "dark" }
 ];
 
 const DECK_BY_THEME: Record<PackTheme, string[]> = {
@@ -50,8 +35,7 @@ const DECK_BY_THEME: Record<PackTheme, string[]> = {
   ]
 };
 
-export function DuelLanding({ beats, kitProductId }: Props) {
-  const [activeTab, setActiveTab] = useState<TabId>("beats");
+export function DuelLanding({ kitProductId }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [kitCheckoutLoading, setKitCheckoutLoading] = useState(false);
 
@@ -74,7 +58,6 @@ export function DuelLanding({ beats, kitProductId }: Props) {
   const openTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const cycleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const preloadedThemesRef = useRef<Set<PackTheme>>(new Set());
-  const beatPlayerRef = useRef<HTMLIFrameElement | null>(null);
 
   const shellStyle = useMemo(
     () =>
@@ -178,26 +161,12 @@ export function DuelLanding({ beats, kitProductId }: Props) {
     setSelectedPack(null);
     setSliceProgress(0);
     setDeckCards([]);
-    setActiveTab("beats");
     setMenuOpen(false);
     setIsDeckCycling(false);
   }
 
   function packLabelFor(pack: PackItem) {
-    return pack.tab === "beats" ? "Beats" : "Kits";
-  }
-
-  function sendYouTubeCommand(command: "nextVideo" | "previousVideo") {
-    const frame = beatPlayerRef.current;
-    if (!frame?.contentWindow) return;
-    frame.contentWindow.postMessage(
-      JSON.stringify({
-        event: "command",
-        func: command,
-        args: []
-      }),
-      "*"
-    );
+    return pack.theme === "dark" ? "Dark Kit" : "Coming Soon";
   }
 
   function startRingDrag(clientX: number) {
@@ -281,7 +250,6 @@ export function DuelLanding({ beats, kitProductId }: Props) {
   function choosePack(pack: PackItem) {
     if (stage !== "carousel") return;
     setSelectedPack(pack);
-    setActiveTab(pack.tab);
     setSliceProgress(0);
     setDeckCards([]);
     setIsDeckCycling(false);
@@ -470,17 +438,6 @@ export function DuelLanding({ beats, kitProductId }: Props) {
         <a href="https://www.youtube.com/@ogambi11" target="_blank" rel="noreferrer">
           YouTube
         </a>
-        <hr />
-        {beats
-          .filter(
-            (beat) =>
-              beat.title !== "Golden Window" && beat.title !== "Midnight Asphalt"
-          )
-          .map((beat) => (
-            <Link href={`/checkout/${beat.slug}`} key={beat.id} onClick={() => setMenuOpen(false)}>
-              {beat.title}
-            </Link>
-          ))}
         <p className="menu-copyright">Copyright gambinoflp Kits — All rights reserved</p>
       </aside>
 
@@ -536,7 +493,7 @@ export function DuelLanding({ beats, kitProductId }: Props) {
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={pack.image} alt="" className="ring-pack-image" draggable={false} />
-                      <span className={"ring-pack-title " + (pack.tab === "beats" ? "is-beats" : "is-kits")}>{packLabelFor(pack)}</span>
+                      <span className={"ring-pack-title " + (pack.theme === "dark" ? "is-beats" : "is-kits")}>{packLabelFor(pack)}</span>
                     </button>
                   );
                 });
@@ -586,101 +543,58 @@ export function DuelLanding({ beats, kitProductId }: Props) {
         ) : null}
 
         {stage === "deck" ? (
-          <div className={`deck-stage deck-stage-center ${selectedPack?.tab === "beats" ? "is-beat-stage" : ""}`}>
-            {selectedPack?.tab === "licenses" ? (
-              <div className="kit-showcase">
-                <p className="kit-click-hint">Click a card</p>
-                <button type="button" className="deck-stack" onClick={cycleDeckTopToBack} aria-label="Cycle deck">
-                  {deckCards.map((img, index) => (
-                    <span
-                      key={`${img}-${index}-${deckCards.length}`}
-                      className={"deck-item " + (index === 0 ? "is-top " : "") + (index === 0 && isDeckCycling ? "is-cycling" : "")}
-                      style={{
-                        zIndex: deckCards.length - index,
-                        transform: `translateY(${index * 7}px) rotate(${index * 1.1}deg)`
-                      }}
-                    >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={img} alt="Deck card" className="deck-item-image" draggable={false} />
-                    </span>
-                  ))}
-                </button>
+          <div className="deck-stage deck-stage-center">
+            <div className="kit-showcase">
+              <p className="kit-click-hint">Click a card</p>
+              <button type="button" className="deck-stack" onClick={cycleDeckTopToBack} aria-label="Cycle deck">
+                {deckCards.map((img, index) => (
+                  <span
+                    key={`${img}-${index}-${deckCards.length}`}
+                    className={"deck-item " + (index === 0 ? "is-top " : "") + (index === 0 && isDeckCycling ? "is-cycling" : "")}
+                    style={{
+                      zIndex: deckCards.length - index,
+                      transform: `translateY(${index * 7}px) rotate(${index * 1.1}deg)`
+                    }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={img} alt="Deck card" className="deck-item-image" draggable={false} />
+                  </span>
+                ))}
+              </button>
 
-                <aside className="kit-info-panel" aria-label="Kit details">
-                  <h3>{kitTitle}</h3>
-                  {isSpecialKit ? (
-                    <p className="kit-description is-center">{kitDescription}</p>
-                  ) : (
-                    <>
-                      <p className="kit-description">{kitDescription}</p>
-                      <div className="kit-stats" aria-label="Kit stats">
-                        {kitStats.map(([label, value]) => (
-                          <div key={label} className="kit-stat-row">
-                            <span>{label}</span>
-                            <strong>{value}</strong>
-                          </div>
-                        ))}
-                      </div>
-                    </>
-                  )}
-                  {!isSpecialKit ? (
-                    <button
-                      type="button"
-                      className="kit-buy-btn"
-                      onClick={startKitCheckout}
-                      disabled={!kitProductId || kitCheckoutLoading}
-                    >
-                      <span className="kit-buy-btn-label">Buy Now!</span>
-                      <small>$29.99</small>
-                    </button>
-                  ) : null}
-                </aside>
-              </div>
-            ) : (
-              <div className="beat-foil-showcase" aria-label="Beat foil showcase">
-                <div className="beat-foil-screen beat-foil-screen-standalone">
-                  <iframe
-                    ref={beatPlayerRef}
-                    className="beat-foil-player"
-                    src="https://www.youtube.com/embed/O_kbKD9WSg4?list=PLymoRyrdWciVZb_yZxu_fiEq1k5ZbjbSI&enablejsapi=1"
-                    title="OGambi11 music player"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="beat-foil-controls" aria-label="Playlist controls">
-                  <button type="button" className="beat-foil-control-btn" onClick={() => sendYouTubeCommand("previousVideo")}>
-                    Previous
+              <aside className="kit-info-panel" aria-label="Kit details">
+                <h3>{kitTitle}</h3>
+                {isSpecialKit ? (
+                  <p className="kit-description is-center">{kitDescription}</p>
+                ) : (
+                  <>
+                    <p className="kit-description">{kitDescription}</p>
+                    <div className="kit-stats" aria-label="Kit stats">
+                      {kitStats.map(([label, value]) => (
+                        <div key={label} className="kit-stat-row">
+                          <span>{label}</span>
+                          <strong>{value}</strong>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                )}
+                {!isSpecialKit ? (
+                  <button
+                    type="button"
+                    className="kit-buy-btn"
+                    onClick={startKitCheckout}
+                    disabled={!kitProductId || kitCheckoutLoading}
+                  >
+                    <span className="kit-buy-btn-label">Buy Now!</span>
+                    <small>$29.99</small>
                   </button>
-                  <button type="button" className="beat-foil-control-btn" onClick={() => sendYouTubeCommand("nextVideo")}>
-                    Next
-                  </button>
-                </div>
-                <a
-                  href="https://www.youtube.com/watch?v=O_kbKD9WSg4&list=PLymoRyrdWciVZb_yZxu_fiEq1k5ZbjbSI&pp=0gcJCbUEOCosWNinsAgC"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="beat-foil-player-link"
-                >
-                  OPEN YOUTUBE
-                </a>
-              </div>
-            )}
+                ) : null}
+              </aside>
+            </div>
           </div>
         ) : null}
       </section>
-
-      <div className="hidden-links" aria-hidden="true">
-        {activeTab === "beats"
-          ? beats.map((beat) => (
-              <Link href={`/checkout/${beat.slug}`} key={beat.id}>
-                {beat.title}
-              </Link>
-            ))
-          : LICENSE_TIERS.map((tier) => <span key={tier.id}>{tier.name}</span>)}
-      </div>
     </main>
   );
 }
