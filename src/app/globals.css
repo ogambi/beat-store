@@ -3961,3 +3961,12 @@ body {
     transform: scale(1.2) !important;
   }
 }
+
+/* Final carousel centering */
+.ring-pack-title,
+.ring-pack.is-front .ring-pack-title {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: max-content !important;
+  text-align: center !important;
+}

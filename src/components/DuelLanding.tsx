@@ -487,7 +487,7 @@ export function DuelLanding({ kitProductId }: Props) {
                       type="button"
                       className={`ring-pack ${isFront ? "is-front" : ""}`}
                       style={{
-                        transform: `translate(-50%, -50%) rotateY(${angle}deg) translateZ(220px) scale(${0.84 + Math.max(0, depth) * 0.2})`,
+                        transform: `translate(-50%, -50%) rotateY(${angle}deg) translateZ(184px) scale(${0.84 + Math.max(0, depth) * 0.2})`,
                         zIndex: Math.round((depth + 1) * 50)
                       }}
                       onClick={() => handleRingPackClick(pack, isFront)}
