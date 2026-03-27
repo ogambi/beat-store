@@ -3835,9 +3835,9 @@ body {
 
   .deck-stage.deck-stage-center .kit-showcase .deck-stack,
   .kit-showcase .deck-stack {
-    width: min(82vw, 332px) !important;
-    max-width: min(82vw, 332px) !important;
-    min-width: min(82vw, 332px) !important;
+    width: min(46vw, 176px) !important;
+    max-width: min(46vw, 176px) !important;
+    min-width: min(46vw, 176px) !important;
     margin: 0 auto !important;
   }
 
@@ -3866,9 +3866,9 @@ body {
 @media (max-width: 420px) {
   .deck-stage.deck-stage-center .kit-showcase .deck-stack,
   .kit-showcase .deck-stack {
-    width: min(84vw, 308px) !important;
-    max-width: min(84vw, 308px) !important;
-    min-width: min(84vw, 308px) !important;
+    width: min(48vw, 168px) !important;
+    max-width: min(48vw, 168px) !important;
+    min-width: min(48vw, 168px) !important;
   }
 
   .kit-mobile-title {
