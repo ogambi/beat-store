@@ -567,8 +567,6 @@ export function DuelLanding({ kitProductId }: Props) {
                   ))}
                 </button>
 
-                <p className="kit-mobile-title">{kitTitle}</p>
-
                 <aside className="kit-info-panel" aria-label="Kit details">
                   <h3>{kitTitle}</h3>
                   {isSpecialKit ? (
@@ -600,18 +598,21 @@ export function DuelLanding({ kitProductId }: Props) {
                 </aside>
 
                 {!isSpecialKit ? (
-                  <div className="kit-mobile-actions" aria-label="Kit actions">
-                    <button type="button" className="kit-mobile-action" onClick={() => setMobileKitInfoOpen((value) => !value)}>
-                      {mobileKitInfoOpen ? "Cards" : "Info"}
-                    </button>
-                    <button
-                      type="button"
-                      className="kit-mobile-action kit-mobile-action-buy"
-                      onClick={startKitCheckout}
-                      disabled={!kitProductId || kitCheckoutLoading}
-                    >
-                      {kitCheckoutLoading ? "Loading..." : "Buy Now"}
-                    </button>
+                  <div className="kit-mobile-footer" aria-label="Kit footer">
+                    <p className="kit-mobile-title">{kitTitle}</p>
+                    <div className="kit-mobile-actions" aria-label="Kit actions">
+                      <button type="button" className="kit-mobile-action" onClick={() => setMobileKitInfoOpen((value) => !value)}>
+                        {mobileKitInfoOpen ? "Cards" : "Info"}
+                      </button>
+                      <button
+                        type="button"
+                        className="kit-mobile-action kit-mobile-action-buy"
+                        onClick={startKitCheckout}
+                        disabled={!kitProductId || kitCheckoutLoading}
+                      >
+                        {kitCheckoutLoading ? "Loading..." : "Buy Now"}
+                      </button>
+                    </div>
                   </div>
                 ) : null}
               </div>
