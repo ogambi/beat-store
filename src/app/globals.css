@@ -1275,15 +1275,15 @@ a {
   }
 
   .selected-pack-shell.is-white-pack {
-    width: min(420px, 96vw);
-    transform: scale(1.42);
+    width: min(480px, 100vw);
+    transform: scale(1.56);
   }
 }
 
 @media (max-width: 420px) {
   .selected-pack-shell.is-white-pack {
-    width: min(396px, 98vw);
-    transform: scale(1.38);
+    width: min(450px, 100vw);
+    transform: scale(1.52);
   }
 }
 
