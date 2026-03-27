@@ -3339,3 +3339,114 @@ body {
     margin-top: -16px !important;
   }
 }
+
+/* Final mobile kit override */
+@media (max-width: 680px) {
+  html,
+  body,
+  .duel-page {
+    background-image: url("/background.webp") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center top !important;
+    background-color: #05050a !important;
+  }
+
+  .duel-field,
+  .deck-stage.deck-stage-center,
+  .kit-showcase,
+  .kit-info-panel {
+    background: transparent !important;
+    background-image: none !important;
+  }
+
+  .deck-stage.deck-stage-center {
+    padding-top: calc(env(safe-area-inset-top) + 58px) !important;
+    gap: 6px !important;
+  }
+
+  .kit-click-hint {
+    margin: 0 0 10px !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-showcase > .deck-stack,
+  .deck-stage.deck-stage-center .kit-showcase .deck-stack,
+  .kit-showcase > .deck-stack,
+  .kit-showcase .deck-stack {
+    width: 152px !important;
+    max-width: 152px !important;
+    min-width: 152px !important;
+    margin: 0 auto !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-showcase .kit-info-panel,
+  .deck-stage.deck-stage-center .kit-info-panel,
+  .kit-showcase .kit-info-panel,
+  .kit-info-panel {
+    width: min(82vw, 268px) !important;
+    max-width: min(82vw, 268px) !important;
+    margin: -6px 0 0 !important;
+    padding: 0.54rem 0.56rem 0.62rem !important;
+    gap: 0.34rem !important;
+  }
+
+  .kit-info-panel h3 {
+    font-size: 0.84rem !important;
+  }
+
+  .kit-info-panel p,
+  .kit-info-panel .kit-description {
+    font-size: 0.66rem !important;
+    line-height: 1.18 !important;
+  }
+
+  .kit-stats {
+    gap: 0.14rem !important;
+  }
+
+  .kit-stat-row {
+    font-size: 0.58rem !important;
+  }
+
+  .kit-stat-row strong {
+    font-size: 0.64rem !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-buy-btn,
+  .kit-buy-btn {
+    padding: 0.48rem 0.62rem !important;
+  }
+
+  .kit-buy-btn-label {
+    font-size: 0.8rem !important;
+  }
+
+  .kit-buy-btn small {
+    font-size: 0.72rem !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .deck-stage.deck-stage-center {
+    padding-top: calc(env(safe-area-inset-top) + 52px) !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-showcase > .deck-stack,
+  .deck-stage.deck-stage-center .kit-showcase .deck-stack,
+  .kit-showcase > .deck-stack,
+  .kit-showcase .deck-stack {
+    width: 142px !important;
+    max-width: 142px !important;
+    min-width: 142px !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-showcase .kit-info-panel,
+  .deck-stage.deck-stage-center .kit-info-panel,
+  .kit-showcase .kit-info-panel,
+  .kit-info-panel {
+    width: min(84vw, 252px) !important;
+    max-width: min(84vw, 252px) !important;
+  }
+}
