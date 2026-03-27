@@ -3703,3 +3703,25 @@ body {
     max-width: min(90vw, 300px) !important;
   }
 }
+
+/* Mobile button row separation */
+@media (max-width: 680px) {
+  .kit-showcase {
+    min-height: calc(100dvh - 210px) !important;
+  }
+
+  .kit-mobile-actions {
+    margin-top: auto !important;
+    padding-top: 18px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .kit-showcase {
+    min-height: calc(100dvh - 196px) !important;
+  }
+
+  .kit-mobile-actions {
+    padding-top: 14px !important;
+  }
+}
