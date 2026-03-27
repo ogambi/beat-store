@@ -38,6 +38,7 @@ const DECK_BY_THEME: Record<PackTheme, string[]> = {
 export function DuelLanding({ kitProductId }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [kitCheckoutLoading, setKitCheckoutLoading] = useState(false);
+  const [mobileKitInfoOpen, setMobileKitInfoOpen] = useState(false);
 
   const [stage, setStage] = useState<Stage>("carousel");
   const [ringRotation, setRingRotation] = useState(0);
@@ -163,6 +164,7 @@ export function DuelLanding({ kitProductId }: Props) {
     setDeckCards([]);
     setMenuOpen(false);
     setIsDeckCycling(false);
+    setMobileKitInfoOpen(false);
   }
 
   function packLabelFor(pack: PackItem) {
@@ -253,6 +255,7 @@ export function DuelLanding({ kitProductId }: Props) {
     setSliceProgress(0);
     setDeckCards([]);
     setIsDeckCycling(false);
+    setMobileKitInfoOpen(false);
     preloadDeckForTheme(pack.theme);
     setStage("focus");
   }
@@ -275,6 +278,7 @@ export function DuelLanding({ kitProductId }: Props) {
     if (openTimerRef.current) clearTimeout(openTimerRef.current);
     if (cycleTimerRef.current) clearTimeout(cycleTimerRef.current);
     setIsDeckCycling(false);
+    setMobileKitInfoOpen(false);
 
     const nextDeck = [...DECK_BY_THEME[selectedPack.theme]];
     preloadDeckForTheme(selectedPack.theme);
@@ -545,7 +549,7 @@ export function DuelLanding({ kitProductId }: Props) {
         {stage === "deck" ? (
           <div className="deck-stage deck-stage-center">
             {selectedPack?.theme === "white" ? (
-              <div className="kit-showcase">
+              <div className={`kit-showcase ${mobileKitInfoOpen ? "is-mobile-info" : ""}`}>
                 <p className="kit-click-hint">Click a card</p>
                 <button type="button" className="deck-stack" onClick={cycleDeckTopToBack} aria-label="Cycle deck">
                   {deckCards.map((img, index) => (
@@ -592,6 +596,22 @@ export function DuelLanding({ kitProductId }: Props) {
                     </button>
                   ) : null}
                 </aside>
+
+                {!isSpecialKit ? (
+                  <div className="kit-mobile-actions" aria-label="Kit actions">
+                    <button type="button" className="kit-mobile-action" onClick={() => setMobileKitInfoOpen((value) => !value)}>
+                      {mobileKitInfoOpen ? "Cards" : "Info"}
+                    </button>
+                    <button
+                      type="button"
+                      className="kit-mobile-action kit-mobile-action-buy"
+                      onClick={startKitCheckout}
+                      disabled={!kitProductId || kitCheckoutLoading}
+                    >
+                      {kitCheckoutLoading ? "Loading..." : "Buy Now"}
+                    </button>
+                  </div>
+                ) : null}
               </div>
             ) : (
               <div className="kit-showcase">
