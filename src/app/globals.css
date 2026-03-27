@@ -3965,8 +3965,10 @@ body {
 /* Final carousel centering */
 .ring-pack-title,
 .ring-pack.is-front .ring-pack-title {
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  width: max-content !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  transform: none !important;
+  display: block !important;
   text-align: center !important;
 }
