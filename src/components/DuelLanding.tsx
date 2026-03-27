@@ -551,7 +551,6 @@ export function DuelLanding({ kitProductId }: Props) {
                 </div>
               ) : null}
             </div>
-            {selectedPack.theme === "dark" ? <p className="pack-coming-soon">COMING SOON</p> : null}
           </div>
         ) : null}
 
@@ -560,7 +559,11 @@ export function DuelLanding({ kitProductId }: Props) {
             {selectedPack?.theme === "white" ? (
               <>
                 <div className={`kit-showcase ${mobileKitInfoOpen ? "is-mobile-info" : ""}`}>
-                  <p className="kit-click-hint">Click a card</p>
+                  {!mobileKitInfoOpen ? (
+                    <p className="kit-click-hint" style={{ width: "100%", textAlign: "center", justifySelf: "center" }}>
+                      Click a card
+                    </p>
+                  ) : null}
                   <button type="button" className="deck-stack" onClick={cycleDeckTopToBack} aria-label="Cycle deck">
                     {deckCards.map((card, index) => (
                       <span
