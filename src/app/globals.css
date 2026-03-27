@@ -3947,7 +3947,8 @@ body {
     overflow: visible !important;
   }
 
-  .selected-pack-shell.is-white-pack {
+  .selected-pack-shell.is-white-pack,
+  .selected-pack-shell.is-dark-pack {
     width: 74vw !important;
     max-width: 74vw !important;
     transform: scale(1.24) !important;
@@ -3955,7 +3956,8 @@ body {
 }
 
 @media (max-width: 420px) {
-  .selected-pack-shell.is-white-pack {
+  .selected-pack-shell.is-white-pack,
+  .selected-pack-shell.is-dark-pack {
     width: 78vw !important;
     max-width: 78vw !important;
     transform: scale(1.2) !important;
