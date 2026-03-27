@@ -510,6 +510,9 @@ export function DuelLanding({ kitProductId }: Props) {
               <span className="swipe-hint-arrow">→</span>
               <span className="swipe-hint-text">swipe</span>
             </div>
+            {selectedPack?.theme === "dark" && ["slicing", "opening"].includes(stage) ? (
+              <p className="pack-coming-soon">COMING SOON</p>
+            ) : null}
           </div>
         ) : null}
 
