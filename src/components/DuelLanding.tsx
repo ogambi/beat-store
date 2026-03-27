@@ -34,10 +34,7 @@ const DECK_BY_THEME: Record<PackTheme, DeckCard[]> = {
   white: [
     { image: "/DarkmagicianHd.jpg", title: "Dark Magician Kit", isAvailable: true },
     { image: "/DMG.jpg", title: "Dark Magician Girl Kit" },
-    { image: "/Magician of chaos.jpg", title: "Magician of Chaos Kit" },
-    { image: "/DarkmagicianHd.jpg", title: "Dark Paladin Kit" },
-    { image: "/DMG.jpg", title: "Apprentice Illusion Kit" },
-    { image: "/Magician of chaos.jpg", title: "Dark Cavalry Kit" }
+    { image: "/Magician of chaos.jpg", title: "Magician of Chaos Kit" }
   ]
 };
 
