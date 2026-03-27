@@ -3831,6 +3831,9 @@ body {
     font-size: 0.7rem !important;
     letter-spacing: 0.12em !important;
     text-align: center !important;
+    width: 100% !important;
+    display: block !important;
+    align-self: center !important;
   }
 
   .deck-stage.deck-stage-center .kit-showcase .deck-stack,
@@ -3838,7 +3841,7 @@ body {
     width: min(46vw, 176px) !important;
     max-width: min(46vw, 176px) !important;
     min-width: min(46vw, 176px) !important;
-    margin: 0 auto !important;
+    margin: 10px auto 0 !important;
   }
 
   .deck-stage.deck-stage-center .deck-item,
@@ -3861,6 +3864,10 @@ body {
     font-size: 0.95rem !important;
     line-height: 1.15 !important;
   }
+
+  .kit-mobile-footer {
+    margin-top: 44px !important;
+  }
 }
 
 @media (max-width: 420px) {
@@ -3869,10 +3876,15 @@ body {
     width: min(48vw, 168px) !important;
     max-width: min(48vw, 168px) !important;
     min-width: min(48vw, 168px) !important;
+    margin-top: 8px !important;
   }
 
   .kit-mobile-title {
     width: min(92vw, 312px) !important;
     max-width: min(92vw, 312px) !important;
+  }
+
+  .kit-mobile-footer {
+    margin-top: 40px !important;
   }
 }
