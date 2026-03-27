@@ -551,6 +551,7 @@ export function DuelLanding({ kitProductId }: Props) {
                 </div>
               ) : null}
             </div>
+            {selectedPack.theme === "dark" ? <p className="pack-coming-soon">COMING SOON</p> : null}
           </div>
         ) : null}
 
