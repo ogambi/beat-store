@@ -3866,7 +3866,7 @@ body {
   }
 
   .kit-mobile-footer {
-    margin-top: 12px !important;
+    margin-top: -10px !important;
     gap: 8px !important;
   }
 
@@ -3890,7 +3890,7 @@ body {
   }
 
   .kit-mobile-footer {
-    margin-top: 10px !important;
+    margin-top: -12px !important;
     gap: 8px !important;
   }
 
