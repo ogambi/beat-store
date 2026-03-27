@@ -551,9 +551,6 @@ export function DuelLanding({ kitProductId }: Props) {
                 </div>
               ) : null}
             </div>
-            {selectedPack?.theme === "dark" && ["slicing", "opening"].includes(stage) ? (
-              <p className="pack-coming-soon">COMING SOON</p>
-            ) : null}
           </div>
         ) : null}
 
