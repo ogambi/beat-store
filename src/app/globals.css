@@ -3948,16 +3948,16 @@ body {
   }
 
   .selected-pack-shell.is-white-pack {
-    width: 92vw !important;
-    max-width: 92vw !important;
-    transform: scale(1.62) !important;
+    width: 74vw !important;
+    max-width: 74vw !important;
+    transform: scale(1.24) !important;
   }
 }
 
 @media (max-width: 420px) {
   .selected-pack-shell.is-white-pack {
-    width: 94vw !important;
-    max-width: 94vw !important;
-    transform: scale(1.58) !important;
+    width: 78vw !important;
+    max-width: 78vw !important;
+    transform: scale(1.2) !important;
   }
 }
