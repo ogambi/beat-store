@@ -3582,3 +3582,124 @@ body {
     display: none !important;
   }
 }
+
+/* Mobile kit experience v3 */
+.kit-mobile-title {
+  display: none;
+}
+
+@media (max-width: 680px) {
+  .deck-stage.deck-stage-center {
+    padding-top: calc(env(safe-area-inset-top) + 44px) !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .kit-showcase {
+    width: min(88vw, 320px) !important;
+    max-width: min(88vw, 320px) !important;
+    gap: 12px !important;
+  }
+
+  .kit-click-hint {
+    margin: 0 0 12px !important;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.1em !important;
+    text-align: center !important;
+  }
+
+  .kit-showcase .deck-stack {
+    width: min(210px, 56vw) !important;
+    max-width: min(210px, 56vw) !important;
+    min-width: min(210px, 56vw) !important;
+    margin: 0 auto !important;
+  }
+
+  .kit-mobile-title {
+    display: block !important;
+    margin: 2px 0 0 !important;
+    color: #f7f4ff !important;
+    font-family: "Courier New", monospace !important;
+    font-size: 0.94rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+  }
+
+  .kit-showcase .kit-info-panel {
+    display: none !important;
+  }
+
+  .kit-showcase.is-mobile-info .kit-click-hint,
+  .kit-showcase.is-mobile-info .deck-stack,
+  .kit-showcase.is-mobile-info .kit-mobile-title {
+    display: none !important;
+  }
+
+  .kit-showcase.is-mobile-info .kit-info-panel {
+    display: grid !important;
+    width: min(88vw, 320px) !important;
+    max-width: min(88vw, 320px) !important;
+    height: 34vh !important;
+    min-height: 220px !important;
+    margin: 0 !important;
+    padding: 0.72rem 0.72rem 0.78rem !important;
+    overflow-y: auto !important;
+    align-content: start !important;
+  }
+
+  .kit-showcase.is-mobile-info .kit-info-panel .kit-buy-btn {
+    display: none !important;
+  }
+
+  .kit-showcase.is-mobile-info .kit-info-panel h3 {
+    font-size: 0.92rem !important;
+    text-align: center !important;
+    margin: 0 !important;
+  }
+
+  .kit-showcase.is-mobile-info .kit-info-panel p,
+  .kit-showcase.is-mobile-info .kit-info-panel .kit-description {
+    font-size: 0.72rem !important;
+    line-height: 1.26 !important;
+    margin: 0 !important;
+  }
+
+  .kit-showcase.is-mobile-info .kit-stats {
+    gap: 0.2rem !important;
+  }
+
+  .kit-showcase.is-mobile-info .kit-stat-row {
+    font-size: 0.62rem !important;
+  }
+
+  .kit-showcase.is-mobile-info .kit-stat-row strong {
+    font-size: 0.7rem !important;
+  }
+
+  .kit-mobile-actions {
+    width: min(88vw, 320px) !important;
+    margin-top: 2px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .kit-showcase {
+    width: min(90vw, 300px) !important;
+    max-width: min(90vw, 300px) !important;
+  }
+
+  .kit-showcase .deck-stack {
+    width: min(194px, 54vw) !important;
+    max-width: min(194px, 54vw) !important;
+    min-width: min(194px, 54vw) !important;
+  }
+
+  .kit-mobile-title,
+  .kit-showcase.is-mobile-info .kit-info-panel,
+  .kit-mobile-actions {
+    width: min(90vw, 300px) !important;
+    max-width: min(90vw, 300px) !important;
+  }
+}

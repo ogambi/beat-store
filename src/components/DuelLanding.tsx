@@ -567,6 +567,8 @@ export function DuelLanding({ kitProductId }: Props) {
                   ))}
                 </button>
 
+                <p className="kit-mobile-title">{kitTitle}</p>
+
                 <aside className="kit-info-panel" aria-label="Kit details">
                   <h3>{kitTitle}</h3>
                   {isSpecialKit ? (
