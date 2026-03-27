@@ -510,7 +510,12 @@ export function DuelLanding({ kitProductId }: Props) {
 
         {selectedPack && (stage === "focus" || stage === "slicing" || stage === "opening") ? (
           <div className="pack-focus-stage">
-            <div className={`selected-pack-shell ${stage === "opening" ? "is-opening" : ""}`} style={shellStyle}>
+            <div
+              className={`selected-pack-shell ${selectedPack.theme === "white" ? "is-white-pack" : "is-dark-pack"} ${
+                stage === "opening" ? "is-opening" : ""
+              }`}
+              style={shellStyle}
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={selectedPack.image} alt="Selected pack" className="selected-pack-image selected-pack-bottom" draggable={false} />
               {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -1273,6 +1273,18 @@ a {
   .deck-stack {
     width: min(240px, 62vw);
   }
+
+  .selected-pack-shell.is-white-pack {
+    width: min(340px, 82vw);
+    transform: scale(1.24);
+  }
+}
+
+@media (max-width: 420px) {
+  .selected-pack-shell.is-white-pack {
+    width: min(336px, 86vw);
+    transform: scale(1.28);
+  }
 }
 
 /* Interaction polish fixes */
