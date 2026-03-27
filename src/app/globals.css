@@ -3866,8 +3866,9 @@ body {
   }
 
   .kit-mobile-footer {
-    margin-top: -10px !important;
+    margin-top: -18px !important;
     gap: 8px !important;
+    padding-bottom: 10px !important;
   }
 
   .kit-mobile-actions {
@@ -3890,8 +3891,9 @@ body {
   }
 
   .kit-mobile-footer {
-    margin-top: -12px !important;
+    margin-top: -18px !important;
     gap: 8px !important;
+    padding-bottom: 12px !important;
   }
 
   .kit-mobile-actions {
