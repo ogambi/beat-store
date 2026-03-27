@@ -3838,9 +3838,9 @@ body {
 
   .deck-stage.deck-stage-center .kit-showcase .deck-stack,
   .kit-showcase .deck-stack {
-    width: min(46vw, 176px) !important;
-    max-width: min(46vw, 176px) !important;
-    min-width: min(46vw, 176px) !important;
+    width: min(56vw, 214px) !important;
+    max-width: min(56vw, 214px) !important;
+    min-width: min(56vw, 214px) !important;
     margin: 10px auto 0 !important;
   }
 
@@ -3866,16 +3866,16 @@ body {
   }
 
   .kit-mobile-footer {
-    margin-top: 44px !important;
+    margin-top: 28px !important;
   }
 }
 
 @media (max-width: 420px) {
   .deck-stage.deck-stage-center .kit-showcase .deck-stack,
   .kit-showcase .deck-stack {
-    width: min(48vw, 168px) !important;
-    max-width: min(48vw, 168px) !important;
-    min-width: min(48vw, 168px) !important;
+    width: min(58vw, 202px) !important;
+    max-width: min(58vw, 202px) !important;
+    min-width: min(58vw, 202px) !important;
     margin-top: 8px !important;
   }
 
@@ -3885,6 +3885,6 @@ body {
   }
 
   .kit-mobile-footer {
-    margin-top: 40px !important;
+    margin-top: 24px !important;
   }
 }
