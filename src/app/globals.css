@@ -3745,7 +3745,7 @@ body {
     width: min(88vw, 320px) !important;
     gap: 12px !important;
     margin-top: auto !important;
-    padding-top: 34px !important;
+    padding-top: 52px !important;
   }
 
   .kit-mobile-title {
@@ -3775,6 +3775,6 @@ body {
   .kit-mobile-footer {
     width: min(90vw, 300px) !important;
     gap: 10px !important;
-    padding-top: 28px !important;
+    padding-top: 42px !important;
   }
 }
