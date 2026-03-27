@@ -487,7 +487,7 @@ export function DuelLanding({ kitProductId }: Props) {
                       type="button"
                       className={`ring-pack ${isFront ? "is-front" : ""}`}
                       style={{
-                        transform: `translate(-50%, -50%) rotateY(${angle}deg) translateZ(184px) scale(${0.84 + Math.max(0, depth) * 0.2})`,
+                        transform: `translate(-50%, -50%) rotateY(${angle}deg) translateZ(140px) scale(${0.84 + Math.max(0, depth) * 0.2})`,
                         zIndex: Math.round((depth + 1) * 50)
                       }}
                       onClick={() => handleRingPackClick(pack, isFront)}
@@ -497,7 +497,7 @@ export function DuelLanding({ kitProductId }: Props) {
                       <img src={pack.image} alt="" className="ring-pack-image" draggable={false} />
                       <span
                         className={"ring-pack-title " + (pack.theme === "dark" ? "is-beats" : "is-kits")}
-                        style={{ left: 0, right: 0, width: "100%", transform: "none", textAlign: "center" }}
+                        style={{ left: 0, right: 0, top: "74px", width: "100%", transform: "none", textAlign: "center" }}
                       >
                         {packLabelFor(pack)}
                       </span>
