@@ -635,11 +635,9 @@ export function DuelLanding({ kitProductId }: Props) {
                 </div>
               </>
             ) : (
-              <div className="kit-showcase">
-                <aside className="kit-info-panel" aria-label="Beats coming soon">
-                  <h3>Beats</h3>
-                  <p className="kit-description is-center">COMING SOON</p>
-                </aside>
+              <div className="beats-coming-soon" aria-label="Beats coming soon">
+                <h3>Beats</h3>
+                <p>COMING SOON</p>
               </div>
             )}
           </div>
