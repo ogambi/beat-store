@@ -495,7 +495,12 @@ export function DuelLanding({ kitProductId }: Props) {
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={pack.image} alt="" className="ring-pack-image" draggable={false} />
-                      <span className={"ring-pack-title " + (pack.theme === "dark" ? "is-beats" : "is-kits")}>{packLabelFor(pack)}</span>
+                      <span
+                        className={"ring-pack-title " + (pack.theme === "dark" ? "is-beats" : "is-kits")}
+                        style={{ left: 0, right: 0, width: "100%", transform: "none", textAlign: "center" }}
+                      >
+                        {packLabelFor(pack)}
+                      </span>
                     </button>
                   );
                 });
