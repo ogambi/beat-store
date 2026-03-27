@@ -16,6 +16,12 @@ type Props = {
   kitProductId: string | null;
 };
 
+type DeckCard = {
+  image: string;
+  title: string;
+  isAvailable?: boolean;
+};
+
 const RING_PACKS: PackItem[] = [
   { id: "white-a", image: "/whitedragonpack-420.png", theme: "white" },
   { id: "dark-a", image: "/darkmagicianpack-420.png", theme: "dark" },
@@ -23,15 +29,15 @@ const RING_PACKS: PackItem[] = [
   { id: "dark-b", image: "/darkmagicianpack-420.png", theme: "dark" }
 ];
 
-const DECK_BY_THEME: Record<PackTheme, string[]> = {
+const DECK_BY_THEME: Record<PackTheme, DeckCard[]> = {
   dark: [],
   white: [
-    "/DarkmagicianHd.jpg",
-    "/DMG.jpg",
-    "/Magician of chaos.jpg",
-    "/DarkmagicianHd.jpg",
-    "/DMG.jpg",
-    "/Magician of chaos.jpg"
+    { image: "/DarkmagicianHd.jpg", title: "Dark Magician Kit", isAvailable: true },
+    { image: "/DMG.jpg", title: "Dark Magician Girl Kit" },
+    { image: "/Magician of chaos.jpg", title: "Magician of Chaos Kit" },
+    { image: "/DarkmagicianHd.jpg", title: "Dark Paladin Kit" },
+    { image: "/DMG.jpg", title: "Apprentice Illusion Kit" },
+    { image: "/Magician of chaos.jpg", title: "Dark Cavalry Kit" }
   ]
 };
 
@@ -45,7 +51,7 @@ export function DuelLanding({ kitProductId }: Props) {
   const [isRingDragging, setIsRingDragging] = useState(false);
   const [selectedPack, setSelectedPack] = useState<PackItem | null>(null);
   const [sliceProgress, setSliceProgress] = useState(0);
-  const [deckCards, setDeckCards] = useState<string[]>([]);
+  const [deckCards, setDeckCards] = useState<DeckCard[]>([]);
   const [isDeckCycling, setIsDeckCycling] = useState(false);
 
   const ringDragRef = useRef({ active: false, moved: false, startX: 0, startRotation: 0, lastX: 0, lastTs: 0 });
@@ -76,9 +82,9 @@ export function DuelLanding({ kitProductId }: Props) {
     if (preloadedThemesRef.current.has(theme)) return;
     preloadedThemesRef.current.add(theme);
 
-    for (const src of DECK_BY_THEME[theme]) {
+    for (const card of DECK_BY_THEME[theme]) {
       const image = new Image();
-      image.src = src;
+      image.src = card.image;
     }
   }
 
@@ -325,7 +331,7 @@ export function DuelLanding({ kitProductId }: Props) {
       setDeckCards((prev) => [...prev.slice(1), prev[0]]);
       setIsDeckCycling(false);
       cycleTimerRef.current = null;
-    }, 240);
+    }, 420);
   }
 
   useEffect(() => {
@@ -342,14 +348,9 @@ export function DuelLanding({ kitProductId }: Props) {
     };
   }, []);
 
-  const currentKitImage = deckCards[0] ?? "";
-  const isSpecialKit = currentKitImage === "/DMG.jpg" || currentKitImage === "/Magician of chaos.jpg";
-  const kitTitle =
-    currentKitImage === "/Magician of chaos.jpg"
-      ? "Magician of Chaos Kit"
-      : currentKitImage === "/DMG.jpg"
-        ? "Dark Magician Girl Kit"
-      : "Dark Magician Kit";
+  const currentCard = deckCards[0] ?? null;
+  const isSpecialKit = !currentCard?.isAvailable;
+  const kitTitle = currentCard?.title ?? "Dark Magician Kit";
   const kitDescription = isSpecialKit
     ? "COMING SOON"
     : "Dark Magician Kit is packed with a full dark starter deck pulled straight from the shadow realm. Everything you need to get started battling on the field.";
@@ -553,9 +554,9 @@ export function DuelLanding({ kitProductId }: Props) {
                 <div className={`kit-showcase ${mobileKitInfoOpen ? "is-mobile-info" : ""}`}>
                   <p className="kit-click-hint">Click a card</p>
                   <button type="button" className="deck-stack" onClick={cycleDeckTopToBack} aria-label="Cycle deck">
-                    {deckCards.map((img, index) => (
+                    {deckCards.map((card, index) => (
                       <span
-                        key={`${img}-${index}-${deckCards.length}`}
+                        key={`${card.title}-${index}-${deckCards.length}`}
                         className={"deck-item " + (index === 0 ? "is-top " : "") + (index === 0 && isDeckCycling ? "is-cycling" : "")}
                         style={{
                           zIndex: deckCards.length - index,
@@ -563,7 +564,7 @@ export function DuelLanding({ kitProductId }: Props) {
                         }}
                       >
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={img} alt="Deck card" className="deck-item-image" draggable={false} />
+                        <img src={card.image} alt={card.title} className="deck-item-image" draggable={false} />
                       </span>
                     ))}
                   </button>
