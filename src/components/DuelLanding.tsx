@@ -556,7 +556,7 @@ export function DuelLanding({ kitProductId }: Props) {
                   <button type="button" className="deck-stack" onClick={cycleDeckTopToBack} aria-label="Cycle deck">
                     {deckCards.map((card, index) => (
                       <span
-                        key={`${card.title}-${index}-${deckCards.length}`}
+                        key={card.title}
                         className={"deck-item " + (index === 0 ? "is-top " : "") + (index === 0 && isDeckCycling ? "is-cycling" : "")}
                         style={{
                           zIndex: deckCards.length - index,
@@ -600,9 +600,13 @@ export function DuelLanding({ kitProductId }: Props) {
                   </aside>
                 </div>
 
-                {!isSpecialKit ? (
-                  <div className="kit-mobile-footer" aria-label="Kit footer">
-                    <p className="kit-mobile-title">{kitTitle}</p>
+                <div className="kit-mobile-footer" aria-label="Kit footer">
+                  <p className="kit-mobile-title">{kitTitle}</p>
+                  {isSpecialKit ? (
+                    <div className="kit-mobile-status" aria-label="Kit availability">
+                      COMING SOON
+                    </div>
+                  ) : (
                     <div className="kit-mobile-actions" aria-label="Kit actions">
                       <button type="button" className="kit-mobile-action" onClick={() => setMobileKitInfoOpen((value) => !value)}>
                         {mobileKitInfoOpen ? "Cards" : "Info"}
@@ -616,8 +620,8 @@ export function DuelLanding({ kitProductId }: Props) {
                         {kitCheckoutLoading ? "Loading..." : "Buy Now"}
                       </button>
                     </div>
-                  </div>
-                ) : null}
+                  )}
+                </div>
               </>
             ) : (
               <div className="kit-showcase">
