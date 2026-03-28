@@ -42,6 +42,7 @@ export function DuelLanding({ kitProductId }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [kitCheckoutLoading, setKitCheckoutLoading] = useState(false);
   const [mobileKitInfoOpen, setMobileKitInfoOpen] = useState(false);
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
 
   const [stage, setStage] = useState<Stage>("carousel");
   const [ringRotation, setRingRotation] = useState(0);
@@ -336,6 +337,16 @@ export function DuelLanding({ kitProductId }: Props) {
   }, [ringRotation]);
 
   useEffect(() => {
+    const syncViewport = () => setIsMobileViewport(window.innerWidth <= 680);
+    syncViewport();
+    window.addEventListener("resize", syncViewport);
+
+    return () => {
+      window.removeEventListener("resize", syncViewport);
+    };
+  }, []);
+
+  useEffect(() => {
     return () => {
       if (openTimerRef.current) clearTimeout(openTimerRef.current);
       if (cycleTimerRef.current) clearTimeout(cycleTimerRef.current);
@@ -480,6 +491,7 @@ export function DuelLanding({ kitProductId }: Props) {
                   const visible = normalizeAngle(angle + ringRotation);
                   const depth = Math.cos((visible * Math.PI) / 180);
                   const isFront = index === closestIdx;
+                  const ringDepth = isMobileViewport ? 140 : 172;
 
                   return (
                     <button
@@ -487,7 +499,7 @@ export function DuelLanding({ kitProductId }: Props) {
                       type="button"
                       className={`ring-pack ${isFront ? "is-front" : ""}`}
                       style={{
-                        transform: `translate(-55%, -50%) rotateY(${angle}deg) translateZ(140px) scale(${0.84 + Math.max(0, depth) * 0.2})`,
+                        transform: `translate(-55%, -50%) rotateY(${angle}deg) translateZ(${ringDepth}px) scale(${0.84 + Math.max(0, depth) * 0.2})`,
                         zIndex: Math.round((depth + 1) * 50)
                       }}
                       onClick={() => handleRingPackClick(pack, isFront)}
