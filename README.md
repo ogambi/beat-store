@@ -65,6 +65,8 @@ Set generated webhook secret into `STRIPE_WEBHOOK_SECRET`.
 ## Launch Files
 - Production checklist: `PRODUCTION_LAUNCH.md`
 - Production env template: `.env.production.example`
+- Test checkout guide: `TEST_CHECKOUT.md`
+- Test env template: `.env.test.example`
 
 ## High-Value Ideas To Add Next
 - Multiple license tiers (MP3 Lease / WAV Lease / Exclusive)
