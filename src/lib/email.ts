@@ -38,7 +38,7 @@ export async function sendDownloadEmail(params: {
               This private download link expires on <strong style="color:#fff6d8;">${expiresAt}</strong>.
             </p>
             <p style="margin:0;color:#9f8ec0;font-size:13px;line-height:1.7;">
-              If you have any trouble with the file or the link, reply to this email and we will help you out.
+              For support, contact <strong style="color:#fff6d8;">gambinoflpp@gmail.com</strong> or send an Instagram DM to <strong style="color:#fff6d8;">@gambino.flp</strong>.
             </p>
           </div>
         </div>
