@@ -491,7 +491,7 @@ export function DuelLanding({ kitProductId }: Props) {
                   const visible = normalizeAngle(angle + ringRotation);
                   const depth = Math.cos((visible * Math.PI) / 180);
                   const isFront = index === closestIdx;
-                  const ringDepth = isMobileViewport ? 140 : 172;
+                  const ringDepth = isMobileViewport ? 140 : 196;
 
                   return (
                     <button
