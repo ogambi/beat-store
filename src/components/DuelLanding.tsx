@@ -377,26 +377,7 @@ export function DuelLanding({ kitProductId }: Props) {
     if (!kitProductId || kitCheckoutLoading) return;
 
     setKitCheckoutLoading(true);
-    try {
-      const response = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ beatId: kitProductId })
-      });
-
-      if (!response.ok) {
-        const payload = (await response.json().catch(() => null)) as { error?: string } | null;
-        throw new Error(payload?.error ?? "Checkout failed");
-      }
-
-      const data = (await response.json()) as { url: string };
-      window.location.href = data.url;
-    } catch (error) {
-      console.error(error);
-      alert(error instanceof Error ? error.message : "Could not start checkout. Try again.");
-    } finally {
-      setKitCheckoutLoading(false);
-    }
+    window.location.assign(`/api/checkout?beatId=${encodeURIComponent(kitProductId)}`);
   }
 
   return (
