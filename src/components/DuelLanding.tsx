@@ -598,7 +598,7 @@ export function DuelLanding({ kitProductId }: Props) {
                         disabled={!kitProductId || kitCheckoutLoading}
                       >
                         <span className="kit-buy-btn-label">Buy Now!</span>
-                        <small>$29.99</small>
+                        <small>$29.99 USD</small>
                       </button>
                     ) : null}
                   </aside>
