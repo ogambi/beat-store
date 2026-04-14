@@ -14,7 +14,7 @@ export async function sendDownloadEmail(params: {
   const result = await resend.emails.send({
     from: env.emailFrom,
     to: params.to,
-    subject: `${params.beatTitle} is ready`,
+    subject: "Gambino.flp Drum Kit",
     html: `
       <div style="margin:0;padding:32px 20px;background:#090312;color:#f5f0ff;font-family:Georgia,'Times New Roman',serif;">
         <div style="max-width:640px;margin:0 auto;border:1px solid rgba(214,187,113,.4);background:linear-gradient(180deg,#120421 0%,#090312 100%);box-shadow:0 0 0 1px rgba(255,255,255,.04) inset;">
