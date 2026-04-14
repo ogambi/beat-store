@@ -14,32 +14,32 @@ export async function sendDownloadEmail(params: {
     to: params.to,
     subject: "Gambino.flp Drum Kit",
     html: `
-      <div style="margin:0;padding:40px 16px;background:#080211;background-image:radial-gradient(circle at top, rgba(139,47,247,.22), transparent 34%), radial-gradient(circle at bottom, rgba(209,63,52,.08), transparent 36%);color:#f7f2ff;font-family:Arial,sans-serif;">
-        <div style="max-width:640px;margin:0 auto;border:1px solid rgba(255,255,255,.08);background:#0d0618;box-shadow:0 24px 60px rgba(0,0,0,.45);overflow:hidden;">
-          <div style="padding:18px 24px;border-bottom:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(139,47,247,.12),rgba(255,255,255,0));text-align:center;">
-            <p style="margin:0 0 8px;color:#d6bb71;font-size:12px;letter-spacing:4px;text-transform:uppercase;font-weight:700;">Gambino.flp</p>
-            <h1 style="margin:0;color:#ffffff;font-size:34px;line-height:1.05;font-weight:800;">Your drum kit is ready</h1>
+      <div style="margin:0;padding:48px 18px;background:#07040d;color:#f5f3f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+        <div style="max-width:620px;margin:0 auto;border-radius:28px;border:1px solid rgba(255,255,255,.08);background:#111015;box-shadow:0 24px 80px rgba(0,0,0,.42);overflow:hidden;">
+          <div style="padding:34px 28px 20px;text-align:center;background:linear-gradient(180deg,rgba(139,47,247,.10),rgba(139,47,247,0));">
+            <p style="margin:0 0 10px;color:#8B2FF7;font-size:12px;letter-spacing:2.8px;text-transform:uppercase;font-weight:600;">Gambino.flp</p>
+            <h1 style="margin:0;color:#ffffff;font-size:36px;line-height:1.04;font-weight:700;letter-spacing:-0.03em;">Your drum kit is ready</h1>
           </div>
-          <div style="padding:28px 24px 30px;">
-            <div style="margin:0 0 22px;padding:18px 20px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025);">
-              <p style="margin:0 0 8px;color:#8B2FF7;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;">Order complete</p>
-              <p style="margin:0;color:#f7f2ff;font-size:18px;line-height:1.7;">
-                Thank you for your purchase. <strong style="color:#fff6d8;">${params.beatTitle}</strong> is unlocked and ready to download.
+          <div style="padding:0 28px 30px;">
+            <div style="padding:24px 22px;border-radius:22px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.025);">
+              <p style="margin:0 0 10px;color:#8B2FF7;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;">Order complete</p>
+              <p style="margin:0;color:#e9e6ef;font-size:18px;line-height:1.75;letter-spacing:-0.01em;">
+                Thank you for your purchase. <strong style="color:#ffffff;font-weight:700;">${params.beatTitle}</strong> is unlocked and ready to download.
               </p>
             </div>
-            <div style="margin:24px 0;padding:28px 18px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025);text-align:center;">
-              <a href="${params.downloadUrl}" style="display:inline-block;padding:16px 34px;background:#b8302a;border:1px solid rgba(255,255,255,.12);color:#fff;text-decoration:none;font-size:15px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;box-shadow:0 14px 30px rgba(139,47,247,.18);">
+            <div style="margin:22px 0 18px;padding:26px 20px;border-radius:22px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02);text-align:center;">
+              <a href="${params.downloadUrl}" style="display:inline-block;padding:15px 30px;border-radius:999px;background:#b8302a;border:1px solid rgba(255,255,255,.10);color:#ffffff;text-decoration:none;font-size:15px;font-weight:700;letter-spacing:0.02em;box-shadow:0 10px 26px rgba(139,47,247,.14);">
                 Download Kit
               </a>
-              <p style="margin:14px 0 0;color:#9f8ec0;font-size:13px;line-height:1.7;">
+              <p style="margin:16px 0 0;color:#9b93aa;font-size:13px;line-height:1.7;">
                 If the button does not open, copy and paste this link into your browser:
               </p>
-              <p style="margin:10px 0 0;color:#cbbde6;font-size:12px;line-height:1.7;word-break:break-all;">
+              <p style="margin:10px 0 0;color:#c9c4d4;font-size:12px;line-height:1.75;word-break:break-all;">
                 ${params.downloadUrl}
               </p>
             </div>
-            <p style="margin:0;color:#a998c8;font-size:13px;line-height:1.8;text-align:center;">
-              For support, contact <strong style="color:#fff6d8;">gambinoflpp@gmail.com</strong> or send an Instagram DM to <strong style="color:#fff6d8;">@gambino.flp</strong>.
+            <p style="margin:0;color:#9b93aa;font-size:13px;line-height:1.8;text-align:center;">
+              For support, contact <strong style="color:#ffffff;font-weight:600;">gambinoflpp@gmail.com</strong> or send an Instagram DM to <strong style="color:#ffffff;font-weight:600;">@gambino.flp</strong>.
             </p>
           </div>
         </div>
