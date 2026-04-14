@@ -14,7 +14,7 @@ export async function sendDownloadEmail(params: {
     to: params.to,
     subject: "Gambino.flp Drum Kit",
     html: `
-      <div style="margin:0;padding:48px 18px;background:#07040d;color:#f5f3f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+      <div style="margin:0;padding:48px 18px;background:#07040d;background-image:radial-gradient(circle at top, rgba(139,47,247,.12), transparent 34%), linear-gradient(180deg, rgba(139,47,247,.08) 0%, rgba(139,47,247,0) 34%);color:#f5f3f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
         <div style="max-width:620px;margin:0 auto;border-radius:28px;border:1px solid rgba(255,255,255,.08);background:#111015;box-shadow:0 24px 80px rgba(0,0,0,.42);overflow:hidden;">
           <div style="padding:34px 28px 20px;text-align:center;background:linear-gradient(180deg,rgba(139,47,247,.10),rgba(139,47,247,0));">
             <p style="margin:0 0 10px;color:#8B2FF7;font-size:12px;letter-spacing:2.8px;text-transform:uppercase;font-weight:600;">Gambino.flp</p>
