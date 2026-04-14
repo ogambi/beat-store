@@ -8,17 +8,57 @@ type PresignedUpload = {
   headers: Record<string, string>;
 };
 
+type PresignedDownload = {
+  url: string;
+};
+
 // Minimal S3-compatible pre-signed PUT URL generator.
 export function createPresignedPutUrl(params: {
   key: string;
   contentType: string;
   expiresInSeconds?: number;
 }): PresignedUpload {
+  return {
+    key: params.key,
+    url: createPresignedObjectUrl({
+      key: params.key,
+      method: "PUT",
+      expiresInSeconds: params.expiresInSeconds ?? 600
+    }),
+    method: "PUT",
+    headers: {
+      "Content-Type": params.contentType
+    }
+  };
+}
+
+export async function getObjectDownloadUrl(key: string): Promise<string> {
+  const signed = createPresignedGetUrl({ key, expiresInSeconds: 60 * 10 });
+  return signed.url;
+}
+
+export function createPresignedGetUrl(params: {
+  key: string;
+  expiresInSeconds?: number;
+}): PresignedDownload {
+  return {
+    url: createPresignedObjectUrl({
+      key: params.key,
+      method: "GET",
+      expiresInSeconds: params.expiresInSeconds ?? 600
+    })
+  };
+}
+
+function createPresignedObjectUrl(params: {
+  key: string;
+  method: "GET" | "PUT";
+  expiresInSeconds: number;
+}) {
   const service = "s3";
   const region = env.storageRegion;
   const host = new URL(env.storageEndpoint).host;
-  const method = "PUT";
-  const expires = params.expiresInSeconds ?? 600;
+  const expires = params.expiresInSeconds;
 
   const now = new Date();
   const amzDate = toAmzDate(now);
@@ -39,7 +79,7 @@ export function createPresignedPutUrl(params: {
   const signedHeaders = "host";
   const payloadHash = "UNSIGNED-PAYLOAD";
   const canonicalRequest = [
-    method,
+    params.method,
     canonicalUri,
     query.toString(),
     canonicalHeaders,
@@ -57,20 +97,7 @@ export function createPresignedPutUrl(params: {
   const signature = hmacHex(getSigningKey(shortDate, region, service), stringToSign);
   query.set("X-Amz-Signature", signature);
 
-  return {
-    key: params.key,
-    url: `${env.storageEndpoint}${canonicalUri}?${query.toString()}`,
-    method,
-    headers: {
-      "Content-Type": params.contentType
-    }
-  };
-}
-
-export async function getObjectDownloadUrl(key: string): Promise<string> {
-  // For private buckets, build a signed URL through your CDN or provider SDK.
-  // This starter returns direct object URL. Lock down bucket as needed.
-  return `${env.storageEndpoint}/${env.storageBucket}/${key}`;
+  return `${env.storageEndpoint}${canonicalUri}?${query.toString()}`;
 }
 
 function toAmzDate(d: Date): string {
