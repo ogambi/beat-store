@@ -14,7 +14,7 @@ export async function sendDownloadEmail(params: {
     to: params.to,
     subject: "Gambino.flp Drum Kit",
     html: `
-      <div style="margin:0;padding:48px 18px;background:#090313;background-image:radial-gradient(circle at top, rgba(139,47,247,.28), transparent 38%), radial-gradient(circle at 20% 80%, rgba(139,47,247,.14), transparent 30%), linear-gradient(180deg, rgba(139,47,247,.18) 0%, rgba(139,47,247,.05) 22%, rgba(139,47,247,0) 60%);color:#f5f3f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+      <div style="margin:0;padding:48px 18px;background:#090313;color:#f5f3f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
         <div style="max-width:620px;margin:0 auto;border-radius:28px;border:1px solid rgba(139,47,247,.24);background:linear-gradient(180deg,#161120 0%,#100b18 100%);box-shadow:0 28px 90px rgba(0,0,0,.46), 0 0 0 1px rgba(255,255,255,.03) inset, 0 0 60px rgba(139,47,247,.10);overflow:hidden;">
           <div style="padding:36px 28px 22px;text-align:center;background:linear-gradient(180deg,rgba(139,47,247,.20),rgba(139,47,247,.04) 55%,rgba(139,47,247,0));">
             <p style="margin:0 0 10px;color:#c79bff;font-size:12px;letter-spacing:2.8px;text-transform:uppercase;font-weight:700;">Gambino.flp</p>
