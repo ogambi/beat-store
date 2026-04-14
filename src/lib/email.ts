@@ -11,7 +11,7 @@ export async function sendDownloadEmail(params: {
 }) {
   const expiresAt = new Date(params.expiresAtIso).toUTCString();
 
-  await resend.emails.send({
+  const result = await resend.emails.send({
     from: env.emailFrom,
     to: params.to,
     subject: `${params.beatTitle} is ready`,
@@ -45,4 +45,8 @@ export async function sendDownloadEmail(params: {
       </div>
     `
   });
+
+  if (result.error) {
+    throw new Error(`Resend error: ${result.error.message}`);
+  }
 }
