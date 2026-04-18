@@ -361,16 +361,24 @@ export function DuelLanding({ kitProductId }: Props) {
   const kitTitle = currentCard?.title ?? "Dark Magician Kit";
   const kitDescription = isSpecialKit
     ? "COMING SOON"
-    : "Dark Magician Kit is packed with a full dark starter deck pulled straight from the shadow realm. Everything you need to get started battling on the field.";
+    : "Dark Magician Kit is packed with a full dark starter deck from the shadow realm. Over 150+ high quality sounds to make hard hitting trap/hip-hop";
+  const kitDescriptionContent = isSpecialKit ? (
+    kitDescription
+  ) : (
+    <>
+      Dark Magician Kit is packed with a full dark starter deck from the shadow realm. Over{" "}
+      <span className="kit-description-highlight">150+</span> high quality sounds to make hard hitting trap/hip-hop
+    </>
+  );
   const kitStats = [
-    ["808s", "10"],
+    ["808s", "24"],
     ["Claps", "10"],
-    ["Hi-Hats", "15"],
-    ["Kicks", "13"],
-    ["Open Hats", "15"],
-    ["Percs", "21"],
-    ["SFX", "26"],
-    ["Snares", "14"]
+    ["Hi-Hats", "17"],
+    ["Kicks", "21"],
+    ["Open Hats", "18"],
+    ["Percs", "22"],
+    ["SFX", "32"],
+    ["Snares", "19"]
   ] as const;
 
   async function startKitCheckout() {
@@ -390,7 +398,12 @@ export function DuelLanding({ kitProductId }: Props) {
       </div>
 
       {stage !== "carousel" ? (
-        <button type="button" className="left-back-btn" onClick={resetToCarousel} aria-label="Back to packs">
+        <button
+          type="button"
+          className={`left-back-btn ${menuOpen ? "is-hidden-for-menu" : ""}`}
+          onClick={resetToCarousel}
+          aria-label="Back to packs"
+        >
           Back
         </button>
       ) : null}
@@ -429,7 +442,7 @@ export function DuelLanding({ kitProductId }: Props) {
         <a href="http://instagram.com/gambino.flp" target="_blank" rel="noreferrer">
           Instagram
         </a>
-        <a href="https://www.youtube.com/@ogambi11" target="_blank" rel="noreferrer">
+        <a href="https://www.youtube.com/@gambinoflp" target="_blank" rel="noreferrer">
           YouTube
         </a>
         <p className="menu-copyright">Copyright gambinoflp Kits — All rights reserved</p>
@@ -579,7 +592,7 @@ export function DuelLanding({ kitProductId }: Props) {
                       <p className="kit-description is-center">{kitDescription}</p>
                     ) : (
                       <>
-                        <p className="kit-description">{kitDescription}</p>
+                        <p className="kit-description">{kitDescriptionContent}</p>
                         <div className="kit-stats" aria-label="Kit stats">
                           {kitStats.map(([label, value]) => (
                             <div key={label} className="kit-stat-row">

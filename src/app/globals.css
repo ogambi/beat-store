@@ -299,6 +299,11 @@ a {
   pointer-events: auto;
 }
 
+.left-back-btn.is-hidden-for-menu {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .menu-head {
   display: flex;
   justify-content: space-between;
@@ -1837,6 +1842,10 @@ a {
   min-height: 112px;
 }
 
+.kit-description-highlight {
+  color: #ffd84d;
+}
+
 .kit-info-panel p strong {
   font-size: 0.86rem;
   text-transform: uppercase;
@@ -2554,6 +2563,27 @@ a {
 }
 
 @media (max-width: 680px) {
+  .menu-panel {
+    top: 82px !important;
+    left: 50% !important;
+    transform: translateX(-50%) translateY(-10px) scale(0.98) !important;
+    width: min(94vw, 360px) !important;
+    max-height: calc(100vh - 104px) !important;
+    z-index: 40 !important;
+  }
+
+  .menu-panel.is-open {
+    transform: translateX(-50%) translateY(0) scale(1) !important;
+  }
+
+  .menu-backdrop {
+    z-index: 39 !important;
+  }
+
+  .menu-toggle {
+    z-index: 41 !important;
+  }
+
   .deck-stage.deck-stage-center {
     padding-top: 120px !important;
   }
