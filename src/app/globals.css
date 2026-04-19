@@ -1156,6 +1156,18 @@ a {
   display: none;
 }
 
+@keyframes deck-stack-label-flash {
+  0%,
+  100% {
+    opacity: 0.35;
+    filter: brightness(0.92);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.18);
+  }
+}
+
 .deck-item {
   position: absolute;
   inset: 0;
@@ -4139,7 +4151,7 @@ body {
     width: min(446px, 34.2vw) !important;
     max-width: min(446px, 34.2vw) !important;
     min-width: min(446px, 34.2vw) !important;
-    margin: 0 0 18px !important;
+    margin: -14px 0 34px !important;
     left: -40px !important;
     top: auto !important;
     transform: none !important;
@@ -4202,5 +4214,6 @@ body {
     transform: none !important;
     z-index: 80 !important;
     pointer-events: none !important;
+    animation: deck-stack-label-flash 1.55s ease-in-out infinite !important;
   }
 }
