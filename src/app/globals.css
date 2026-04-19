@@ -4161,17 +4161,32 @@ body {
     display: block !important;
     position: absolute !important;
     left: 25% !important;
-    top: -34px !important;
+    top: -38px !important;
     width: auto !important;
-    color: #f5f5f5 !important;
-    font-size: 1rem !important;
-    letter-spacing: 0.08em !important;
-    line-height: 1 !important;
+    min-width: max-content !important;
+    color: transparent !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
     white-space: nowrap !important;
     text-align: center !important;
     transform: translateX(-50%) !important;
     margin: 0 !important;
     opacity: 1 !important;
-    z-index: 30 !important;
+    overflow: visible !important;
+    z-index: 60 !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-click-hint::before,
+  .kit-showcase .kit-click-hint::before {
+    content: "Click a card";
+    display: block !important;
+    color: #f5f5f5 !important;
+    font-family: "Courier New", monospace !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    line-height: 1 !important;
+    text-transform: uppercase !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75) !important;
   }
 }
