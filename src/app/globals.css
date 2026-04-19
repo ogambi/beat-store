@@ -3984,36 +3984,38 @@ body {
 @media (min-width: 901px) {
   .deck-stage.deck-stage-center .kit-showcase,
   .kit-showcase {
-    width: min(1320px, 96vw) !important;
-    max-width: min(1320px, 96vw) !important;
-    grid-template-columns: minmax(420px, 520px) minmax(340px, 430px) !important;
+    width: min(1220px, 94vw) !important;
+    max-width: min(1220px, 94vw) !important;
+    grid-template-columns: minmax(400px, 490px) minmax(320px, 400px) !important;
     justify-content: start !important;
     justify-items: start !important;
-    column-gap: clamp(2rem, 4vw, 4.5rem) !important;
+    column-gap: clamp(1.4rem, 3vw, 3rem) !important;
     padding-top: clamp(20px, 3vh, 40px) !important;
   }
 
   .deck-stage.deck-stage-center .kit-showcase .deck-stack,
   .kit-showcase .deck-stack {
-    width: min(420px, 34vw) !important;
-    max-width: min(420px, 34vw) !important;
-    min-width: min(420px, 34vw) !important;
+    width: min(440px, 35vw) !important;
+    max-width: min(440px, 35vw) !important;
+    min-width: min(440px, 35vw) !important;
     justify-self: start !important;
-    margin-left: -72px !important;
+    margin-left: -36px !important;
   }
 
   .deck-stage.deck-stage-center .kit-showcase .kit-info-panel,
   .deck-stage.deck-stage-center .kit-info-panel,
   .kit-showcase .kit-info-panel,
   .kit-info-panel {
-    width: min(430px, 32vw) !important;
-    max-width: min(430px, 32vw) !important;
+    width: min(390px, 30vw) !important;
+    max-width: min(390px, 30vw) !important;
     justify-self: end !important;
     margin: 0 0 0 auto !important;
   }
 
   .kit-click-hint {
-    left: calc(50% - 142px) !important;
+    left: 175px !important;
+    top: -38px !important;
+    transform: translateX(-50%) !important;
   }
 }
 
