@@ -4122,7 +4122,7 @@ body {
     width: min(470px, 36vw) !important;
     max-width: min(470px, 36vw) !important;
     min-width: min(470px, 36vw) !important;
-    margin: 0 !important;
+    margin: 0 0 18px !important;
     left: -40px !important;
     top: auto !important;
     transform: none !important;
@@ -4149,8 +4149,8 @@ body {
   .kit-showcase .kit-click-hint {
     display: block !important;
     position: absolute !important;
-    left: 25% !important;
-    top: -44px !important;
+    left: 50% !important;
+    top: 50% !important;
     width: auto !important;
     color: #f5f5f5 !important;
     font-size: 1rem !important;
@@ -4158,8 +4158,8 @@ body {
     line-height: 1 !important;
     white-space: nowrap !important;
     text-align: center !important;
-    transform: translateX(-50%) !important;
-    margin: 0 0 10px !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
     opacity: 1 !important;
     z-index: 30 !important;
   }
