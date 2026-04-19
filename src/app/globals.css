@@ -4136,8 +4136,8 @@ body {
     grid-column: 2 !important;
     justify-self: center !important;
     align-self: center !important;
-    width: min(460px, 34vw) !important;
-    max-width: min(460px, 34vw) !important;
+    width: min(540px, 40vw) !important;
+    max-width: min(540px, 40vw) !important;
     margin: 0 !important;
     left: 0 !important;
     right: auto !important;
@@ -4147,12 +4147,20 @@ body {
 
   .deck-stage.deck-stage-center .kit-click-hint,
   .kit-showcase .kit-click-hint {
+    display: block !important;
     position: absolute !important;
     left: 25% !important;
     top: -44px !important;
     width: auto !important;
+    color: #f5f5f5 !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.08em !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
     text-align: center !important;
     transform: translateX(-50%) !important;
     margin: 0 0 10px !important;
+    opacity: 1 !important;
+    z-index: 30 !important;
   }
 }
