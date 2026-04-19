@@ -4136,8 +4136,8 @@ body {
     grid-column: 2 !important;
     justify-self: center !important;
     align-self: center !important;
-    width: min(400px, 30vw) !important;
-    max-width: min(400px, 30vw) !important;
+    width: min(460px, 34vw) !important;
+    max-width: min(460px, 34vw) !important;
     margin: 0 !important;
     left: 0 !important;
     right: auto !important;
@@ -4149,10 +4149,10 @@ body {
   .kit-showcase .kit-click-hint {
     position: absolute !important;
     left: 25% !important;
-    top: -30px !important;
+    top: -44px !important;
     width: auto !important;
     text-align: center !important;
     transform: translateX(-50%) !important;
-    margin: 0 !important;
+    margin: 0 0 10px !important;
   }
 }
