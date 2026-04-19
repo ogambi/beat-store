@@ -4137,6 +4137,7 @@ body {
     left: -40px !important;
     top: auto !important;
     transform: none !important;
+    overflow: visible !important;
   }
 
   .deck-stage.deck-stage-center .kit-showcase .kit-info-panel,
@@ -4158,27 +4159,17 @@ body {
 
   .deck-stage.deck-stage-center .kit-click-hint,
   .kit-showcase .kit-click-hint {
-    display: block !important;
-    position: absolute !important;
-    left: 25% !important;
-    top: -38px !important;
-    width: auto !important;
-    min-width: max-content !important;
-    color: transparent !important;
-    font-size: 0 !important;
-    line-height: 0 !important;
-    white-space: nowrap !important;
-    text-align: center !important;
-    transform: translateX(-50%) !important;
-    margin: 0 !important;
-    opacity: 1 !important;
-    overflow: visible !important;
-    z-index: 60 !important;
+    display: none !important;
   }
 
-  .deck-stage.deck-stage-center .kit-click-hint::before,
-  .kit-showcase .kit-click-hint::before {
+  .deck-stage.deck-stage-center .kit-showcase > .deck-stack::before,
+  .deck-stage.deck-stage-center .kit-showcase .deck-stack::before,
+  .kit-showcase > .deck-stack::before,
+  .kit-showcase .deck-stack::before {
     content: "Click a card";
+    position: absolute !important;
+    left: 50% !important;
+    top: -38px !important;
     display: block !important;
     color: #f5f5f5 !important;
     font-family: "Courier New", monospace !important;
@@ -4187,6 +4178,10 @@ body {
     letter-spacing: 0.08em !important;
     line-height: 1 !important;
     text-transform: uppercase !important;
+    white-space: nowrap !important;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75) !important;
+    transform: translateX(-50%) !important;
+    z-index: 80 !important;
+    pointer-events: none !important;
   }
 }
