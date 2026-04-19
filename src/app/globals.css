@@ -1152,6 +1152,10 @@ a {
   cursor: pointer;
 }
 
+.deck-stack-desktop-label {
+  display: none;
+}
+
 .deck-item {
   position: absolute;
   inset: 0;
@@ -4122,10 +4126,8 @@ body {
     column-gap: clamp(24px, 4vw, 64px) !important;
   }
 
-  .deck-stage.deck-stage-center .kit-showcase > .deck-stack,
-  .deck-stage.deck-stage-center .kit-showcase .deck-stack,
-  .kit-showcase > .deck-stack,
-  .kit-showcase .deck-stack {
+  .deck-stage.deck-stage-center .kit-showcase .deck-stack-wrap,
+  .kit-showcase .deck-stack-wrap {
     position: relative !important;
     grid-column: 1 !important;
     justify-self: center !important;
@@ -4135,6 +4137,24 @@ body {
     min-width: min(446px, 34.2vw) !important;
     margin: 0 0 18px !important;
     left: -40px !important;
+    top: auto !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  .deck-stage.deck-stage-center .kit-showcase > .deck-stack,
+  .deck-stage.deck-stage-center .kit-showcase .deck-stack,
+  .kit-showcase > .deck-stack,
+  .kit-showcase .deck-stack {
+    position: relative !important;
+    grid-column: auto !important;
+    justify-self: auto !important;
+    align-self: auto !important;
+    width: min(446px, 34.2vw) !important;
+    max-width: min(446px, 34.2vw) !important;
+    min-width: min(446px, 34.2vw) !important;
+    margin: 0 !important;
+    left: 0 !important;
     top: auto !important;
     transform: none !important;
     overflow: visible !important;
@@ -4162,13 +4182,11 @@ body {
     display: none !important;
   }
 
-  .deck-stage.deck-stage-center .kit-showcase > .deck-stack .deck-stack-label,
-  .deck-stage.deck-stage-center .kit-showcase .deck-stack .deck-stack-label,
-  .kit-showcase > .deck-stack .deck-stack-label,
-  .kit-showcase .deck-stack .deck-stack-label {
+  .deck-stage.deck-stage-center .kit-showcase .deck-stack-desktop-label,
+  .kit-showcase .deck-stack-desktop-label {
     position: absolute !important;
     left: 50% !important;
-    top: -38px !important;
+    top: -42px !important;
     display: block !important;
     color: #f5f5f5 !important;
     font-family: "Courier New", monospace !important;

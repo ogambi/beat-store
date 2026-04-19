@@ -570,24 +570,26 @@ export function DuelLanding({ kitProductId }: Props) {
                       Click a card
                     </p>
                   ) : null}
-                  <button type="button" className="deck-stack" onClick={cycleDeckTopToBack} aria-label="Cycle deck">
-                    <span className="deck-stack-label" aria-hidden="true">
+                  <div className="deck-stack-wrap">
+                    <span className="deck-stack-desktop-label" aria-hidden="true">
                       Click a card
                     </span>
-                    {deckCards.map((card, index) => (
-                      <span
-                        key={card.title}
-                        className={"deck-item " + (index === 0 ? "is-top " : "") + (index === 0 && isDeckCycling ? "is-cycling" : "")}
-                        style={{
-                          zIndex: deckCards.length - index,
-                          transform: `translateY(${index * 7}px) rotate(${index * 1.1}deg)`
-                        }}
-                      >
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={card.image} alt={card.title} className="deck-item-image" draggable={false} />
-                      </span>
-                    ))}
-                  </button>
+                    <button type="button" className="deck-stack" onClick={cycleDeckTopToBack} aria-label="Cycle deck">
+                      {deckCards.map((card, index) => (
+                        <span
+                          key={card.title}
+                          className={"deck-item " + (index === 0 ? "is-top " : "") + (index === 0 && isDeckCycling ? "is-cycling" : "")}
+                          style={{
+                            zIndex: deckCards.length - index,
+                            transform: `translateY(${index * 7}px) rotate(${index * 1.1}deg)`
+                          }}
+                        >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={card.image} alt={card.title} className="deck-item-image" draggable={false} />
+                        </span>
+                      ))}
+                    </button>
+                  </div>
 
                   <aside className="kit-info-panel" aria-label="Kit details">
                     <h3>{kitTitle}</h3>
