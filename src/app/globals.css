@@ -7,6 +7,11 @@
   --accent: #8e63ff;
   --accent-2: #cda7ff;
   --line: rgba(214, 186, 255, 0.2);
+  --ease-smooth: cubic-bezier(0.22, 0.8, 0.2, 1);
+  --ease-soft: cubic-bezier(0.16, 0.84, 0.24, 1);
+  --dur-fast: 0.2s;
+  --dur-base: 0.32s;
+  --dur-slow: 0.46s;
 }
 
 * {
@@ -231,7 +236,7 @@ a {
   font-size: 1.25rem;
   cursor: pointer;
   font-family: "Courier New", monospace;
-  transition: opacity 0.15s ease;
+  transition: opacity var(--dur-fast) var(--ease-soft), transform var(--dur-fast) var(--ease-soft);
 }
 
 @keyframes chain-sway {
@@ -263,7 +268,7 @@ a {
   background: rgba(3, 2, 8, 0);
   z-index: 22;
   pointer-events: none;
-  transition: background 0.25s ease;
+  transition: background var(--dur-base) var(--ease-soft);
 }
 
 .menu-backdrop.is-open {
@@ -289,7 +294,7 @@ a {
   transform: translateY(-10px) scale(0.98);
   opacity: 0;
   pointer-events: none;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: transform var(--dur-base) var(--ease-smooth), opacity var(--dur-base) var(--ease-soft);
   font-family: "Courier New", monospace;
 }
 
@@ -773,7 +778,7 @@ a {
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.12s linear;
+  transition: transform 0.18s var(--ease-smooth);
 }
 
 .pack-card {
@@ -786,7 +791,7 @@ a {
   padding: 0;
   background: transparent;
   transform-style: preserve-3d;
-  transition: filter 0.25s ease, transform 0.25s ease;
+  transition: filter var(--dur-base) var(--ease-soft), transform var(--dur-base) var(--ease-smooth);
 }
 
 .pack-card-image {
@@ -893,7 +898,7 @@ a {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0));
   z-index: 5;
   transform-origin: top center;
-  transition: transform 0.45s ease;
+  transition: transform var(--dur-slow) var(--ease-smooth);
   pointer-events: none;
 }
 
@@ -1005,7 +1010,7 @@ a {
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.12s linear;
+  transition: transform 0.18s var(--ease-smooth);
 }
 
 .ring-pack {
@@ -1018,7 +1023,10 @@ a {
   background: transparent;
   padding: 0;
   transform-style: preserve-3d;
-  transition: transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform var(--dur-base) var(--ease-smooth),
+    filter var(--dur-base) var(--ease-soft),
+    opacity var(--dur-fast) var(--ease-soft);
 }
 
 .ring-pack-image {
@@ -1040,7 +1048,7 @@ a {
   display: grid;
   place-items: center;
   gap: 1rem;
-  animation: pack-focus-in 0.35s ease;
+  animation: pack-focus-in var(--dur-slow) var(--ease-smooth);
 }
 
 .selected-pack-shell {
@@ -1139,7 +1147,7 @@ a {
   display: grid;
   justify-items: center;
   gap: 0.7rem;
-  animation: deck-in 0.45s ease;
+  animation: deck-in var(--dur-slow) var(--ease-smooth);
 }
 
 .deck-stack {
@@ -1171,7 +1179,7 @@ a {
 .deck-item {
   position: absolute;
   inset: 0;
-  transition: transform 0.32s ease, filter 0.25s ease;
+  transition: transform 0.42s var(--ease-smooth), filter var(--dur-base) var(--ease-soft);
 }
 
 .deck-item-image {
@@ -1487,7 +1495,7 @@ a {
 
 /* Deck reveal speed tuning */
 .deck-stage {
-  animation: deck-in 0.16s ease-out !important;
+  animation: deck-in 0.24s var(--ease-smooth) !important;
 }
 
 @keyframes deck-in {
@@ -1882,7 +1890,7 @@ a {
   padding: 0.75rem 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  transition: transform 0.16s ease, filter 0.16s ease;
+  transition: transform var(--dur-fast) var(--ease-smooth), filter var(--dur-fast) var(--ease-soft);
   box-shadow: 0 10px 24px rgba(160, 11, 11, 0.35);
 }
 
@@ -1966,6 +1974,17 @@ a {
   50% {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
