@@ -4129,6 +4129,10 @@ body {
   .deck-stage.deck-stage-center .kit-showcase .deck-stack-wrap,
   .kit-showcase .deck-stack-wrap {
     position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
     grid-column: 1 !important;
     justify-self: center !important;
     align-self: center !important;
@@ -4184,9 +4188,7 @@ body {
 
   .deck-stage.deck-stage-center .kit-showcase .deck-stack-desktop-label,
   .kit-showcase .deck-stack-desktop-label {
-    position: absolute !important;
-    left: 50% !important;
-    top: -42px !important;
+    position: static !important;
     display: block !important;
     color: #f5f5f5 !important;
     font-family: "Courier New", monospace !important;
@@ -4197,7 +4199,7 @@ body {
     text-transform: uppercase !important;
     white-space: nowrap !important;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75) !important;
-    transform: translateX(-50%) !important;
+    transform: none !important;
     z-index: 80 !important;
     pointer-events: none !important;
   }
