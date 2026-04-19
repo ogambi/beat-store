@@ -571,6 +571,9 @@ export function DuelLanding({ kitProductId }: Props) {
                     </p>
                   ) : null}
                   <button type="button" className="deck-stack" onClick={cycleDeckTopToBack} aria-label="Cycle deck">
+                    <span className="deck-stack-label" aria-hidden="true">
+                      Click a card
+                    </span>
                     {deckCards.map((card, index) => (
                       <span
                         key={card.title}
